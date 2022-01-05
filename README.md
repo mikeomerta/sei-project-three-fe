@@ -34,3 +34,5 @@ To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`,
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Michael von Etzdorf
+
