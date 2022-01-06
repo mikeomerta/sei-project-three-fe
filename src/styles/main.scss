@@ -83,3 +83,40 @@
   padding: 0 0 10px 0;
 }
 
+// Homepage
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  // margin: 0px 40px;
+  background-color: lightgrey;
+  width: 100%;
+}
+
+.categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: left;
+  margin: 0px 40px;
+}
+
+.hero-hp {
+  // background-image: url('');
+  display: flex;
+  align-items: left;
+  font-size: 20px;
+  background-color: cornflowerblue;
+  padding: 40px 0px 40px 0px
+}
+
+.about-us {
+  align-items: right;
+  .hp-subtitle {
+    align-items: right;
+  }
+}
