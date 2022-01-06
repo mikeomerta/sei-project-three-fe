@@ -5,6 +5,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import ProjectShow from './components/projects/ProjectShow'
 import ProjectIndex from './components/projects/ProjectIndex'
+import AddProject from './components/projects/AddProjects'
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path = '/register' element = {<Register />} />
         <Route path = '/login' element = {<Login />} />
         <Route path = "/projects" element = {<ProjectIndex />} />
-        <Route path = "/projects/:projectId" element = {<ProjectShow />} />        
+        <Route path = "/projects/:projectId" element = {<ProjectShow />} />   
+        <Route path = "/projects/create" element = {<AddProject />} />      
       </Routes>
     </BrowserRouter>
   )
