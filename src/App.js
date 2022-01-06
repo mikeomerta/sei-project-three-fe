@@ -8,8 +8,6 @@ function App() {
       <Nav />
       <Routes>
         <Route path = "/" element = {<Home />} />
-        {/* <Route path = "/projects" element = {<Index />} /> */}
-        {/* <Route path = "/projects/:projectId" element = {<Show />} /> */}
       </Routes>
     </BrowserRouter>
   )
