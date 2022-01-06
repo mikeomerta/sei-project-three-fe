@@ -3,7 +3,7 @@
 // import { useParams } from 'react-router'
 // import { useHistory, useLocation } from 'react-router'
 
-function projectShow() {
+function ProjectShow() {
   // const { projectId } = useParams()
   // const [project, setProject] = React.useState(null)
 
@@ -78,4 +78,4 @@ function projectShow() {
   )
 }
 
-export default projectShow
+export default ProjectShow

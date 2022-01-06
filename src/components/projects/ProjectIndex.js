@@ -1,6 +1,6 @@
 import React from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { getAllProjects } from '../lib/api'
 
 function ProjectIndex() {
   const [projects, setProjects] = React.useState([])
@@ -9,7 +9,7 @@ function ProjectIndex() {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get('api/projects')
+        const res = await getAllProjects()
         setProjects(res.data)
       } catch (err) {
         console.log(err)
@@ -56,15 +56,15 @@ function ProjectIndex() {
               return project
             }
           }).map(project => (
-            <div key={project._id}>
+            <div key={project._id} className='index-projects-indivdual'>
               <Link to={`/projects/${project._id}`}>
                 <img 
                   src={project.primaryImage}
                   alt={project.projectTitle}
-                  className='index-projects-indivdual'
+                  className='index-projects-indivdual-elements'
                 />
-                <h3 className='index-projects-indivdual'>{project.projectTitle}</h3>
-                <p className='index-projects-indivdual'>{project.primaryDescription}</p>
+                <h3 className='index-projects-indivdual-elements'>{project.projectTitle}</h3>
+                <p className='index-projects-indivdual-elements'>{project.primaryDescription}</p>
               </Link>
             </div>
           ))}
