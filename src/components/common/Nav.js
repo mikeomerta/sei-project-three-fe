@@ -4,7 +4,7 @@ function Nav() {
   return (
     <nav>
       <Link to="/"> Home </Link>
-      <Link to="/index"> Show All </Link>
+      <Link to="/projects"> Show All </Link>
       <Link to="/projects/:projectId"> Show One  </Link>
     </nav>
   )
