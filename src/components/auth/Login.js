@@ -1,14 +1,13 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom' 
-import { register } from '../lib/api'
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from '../lib/api'
+import { setToken } from '../lib/auth'
 
-function Registration() {
+function Login() {
 
   const [formData, setFormData] = React.useState({
-    username: '',
     email: '',
     password: '',
-    passwordConfirmation: '',
   })
 
   const navigate = useNavigate()
@@ -19,31 +18,24 @@ function Registration() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     try {
-      await register(formData)
-      navigate('/login')
+      const res = await login(formData)
+      setToken(res.data.token)
+      navigate('/projects')
     } catch (err) {
-      throw new Error()
+      console.log(err.response.data)
     }
   }
 
+  console.log('FROM', formData)
+  
   return (
     <section>
       <div>
         <form
           onSubmit={handleSubmit}
         >
-          <div className="FIELD">
-            <label htmlFor="username">Username</label>
-            <div>
-              <input 
-                name="username"
-                id="username"
-                placeholder="username"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
           <div className="FIELD">
             <label htmlFor="email">Email</label>
             <div>
@@ -68,32 +60,20 @@ function Registration() {
             </div>
           </div>
           <div className="FIELD">
-            <label htmlFor="passwordConfirmation">Password Confirmation</label>
-            <div>
-              <input 
-                type="password"
-                name="passwordConfirmation"
-                id="passwordConfirmation"
-                placeholder="passwordConfirmation"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="FIELD">
             <div>
               <button 
                 type="submit"
-              >Register Me!</button>
+              >Log Me In!</button>
             </div>
             <div>
-              <p>Already a member?  <Link to="/login">Click here</Link></p> 
+              <p>Not a member?  <Link to="/register">Click here</Link></p> 
             </div>
           </div>
         </form>
       </div>
     </section>
   )
+
 }
 
-export default Registration
-
+export default Login

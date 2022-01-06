@@ -9,3 +9,7 @@ export function getAllProjects() {
 export function register(formData) {
   return axios.post(`${baseUrl}/register`, formData)
 }
+
+export function login(formData) {
+  return axios.post(`${baseUrl}/login`, formData) 
+}
