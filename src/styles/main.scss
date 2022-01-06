@@ -1,0 +1,85 @@
+// * Index Page
+
+.title-and-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 40px;
+}
+
+.index-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 40px;
+  .categories-div button {
+    border: none;
+    background-color: transparent;
+  }
+  .button button {
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 25px;
+    padding: 4px 8px;
+  }
+}
+
+.index-img {
+  display: flex;
+  justify-content: center;
+}
+
+.index-projects {
+  margin: 20px 40px 0px 40px;
+  display: flex;
+  h3 {
+    color: black;
+  }
+  p {
+    color: grey;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.index-projects-indivdual {
+  width: 100%;
+}
+
+// * Show Page
+
+.body-container {
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+}
+
+.project-title {
+  display: flex;
+  align-items: center;
+  font-size: 25px
+}
+
+.button-container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 30px;
+}
+
+.secondary-image-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 0 10px 0;
+}
+
