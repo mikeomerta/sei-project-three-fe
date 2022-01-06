@@ -1,7 +1,7 @@
 // import React from 'react'
 // import axios from 'axios'
 // import { useParams } from 'react-router'
-// import { useHistory, useLocation } from 'react-router'
+
 
 function projectShow() {
   // const { projectId } = useParams()
