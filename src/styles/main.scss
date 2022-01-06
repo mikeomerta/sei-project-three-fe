@@ -4,17 +4,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 40px;
+  margin: 0px 30px;
 }
 
 .index-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 40px;
-  .categories-div button {
+  margin: 0px 30px;
+  .categories-div {
+    padding: 0px;
+    button {
     border: none;
     background-color: transparent;
+    }
   }
   .button button {
     background-color: transparent;
@@ -24,14 +27,11 @@
   }
 }
 
-.index-img {
-  display: flex;
-  justify-content: center;
-}
-
 .index-projects {
-  margin: 20px 40px 0px 40px;
+  margin: 20px 5px 0px 5px;
+  justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   h3 {
     color: black;
   }
@@ -44,6 +44,11 @@
 }
 
 .index-projects-indivdual {
+  width: 22%;
+  margin: 10px;
+}
+
+.index-projects-indivdual-elements {
   width: 100%;
 }
 
