@@ -1,23 +1,23 @@
-import React from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router'
+// import React from 'react'
+// import axios from 'axios'
+// import { useParams } from 'react-router'
 
 
 function projectShow() {
-  const { projectId } = useParams()
-  const [project, setProject] = React.useState(null)
+  // const { projectId } = useParams()
+  // const [project, setProject] = React.useState(null)
 
-  React.useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = XXXX
-        setProject(res.data)
-      } catch (err) {
-        console.log()
-      }
-    }
-    getData()
-  }, [projectId])
+  // React.useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const res = XXXX
+  //       setProject(res.data)
+  //     } catch (err) {
+  //       console.log()
+  //     }
+  //   }
+  //   getData()
+  // }, [projectId])
 
   return (
     <section>

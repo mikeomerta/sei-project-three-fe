@@ -2,6 +2,7 @@ import Select from 'react-select'
 import React from 'react'
 import { headers } from '../lib/api'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 function AddProject() {
   const navigate = useNavigate()
@@ -22,6 +23,8 @@ function AddProject() {
     categoryTag: [],
   })
 
+  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
+
   const handleTextInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -30,6 +33,35 @@ function AddProject() {
     const selectedItems = e ? e.map(item => item.value) : []
     setFormData({ ...formData, categoryTag: selectedItems })
   }
+
+  const handlePrimaryImageUpload = async (e) => {
+    console.log(e.target.files)
+    const data = new FormData()
+    data.append('file', e.target.files[0])
+    data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
+    setIsUploadingImage(true)
+    const res = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, data)
+    setFormData({ ...formData, primaryImage: res.data.url })
+    setIsUploadingImage(false)
+  }
+
+  const handleSecondaryImageUpload = async (e) => {
+    console.log(e.target.files)
+    const data = new FormData()
+    data.append('file', e.target.files[0])
+    data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
+    setIsUploadingImage(true)
+    const res = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, data)
+    setFormData({ ...formData, secondaryImage: res.data.url })
+    setIsUploadingImage(false)
+  }
+  
+  // * To show information being passed. Can be deleted. 
+    
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   window.alert(`Submitting ${JSON.stringify(formData, null, 2)}`)
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -41,6 +73,8 @@ function AddProject() {
       console.log(err.response.data)
     }
   }
+
+  
 
   return (
     <section>
@@ -70,23 +104,32 @@ function AddProject() {
               />
             </div>
           </div>
-          <div className="FIELD">
-            <label htmlFor="primaryImage">Primary Image *</label>
+          {isUploadingImage && <p>Image uploading</p>}
+          {formData.primaryImage ?
             <div>
-              <input 
-                name="primaryImage"
-                id="primaryImage"
-                placeholder="Primary Image"
-                onChange={handleTextInputChange}
-              />
+              <img src={formData.primaryImage} alt="uploaded primary image"/>
             </div>
-          </div>
+            :
+            <div className="FIELD">
+              <label htmlFor="primaryImage">Primary Image *</label>
+              <div>
+                <input 
+                  type="file"
+                  name="primaryImage"
+                  id="primaryImage"
+                  placeholder="Primary Image"
+                  onChange={handlePrimaryImageUpload}
+                />
+              </div>
+            </div>
+          }          
           <div className="FIELD">
             <label htmlFor="secondaryDescription">Secondary Description</label>
             <div>
               <textarea 
                 name="secondaryDescription"
                 id="secondaryDescription"
+                accept="image/png, image/jpeg"
                 placeholder="Secondary Description"
                 onChange={handleTextInputChange}
               />
@@ -95,14 +138,16 @@ function AddProject() {
           <div className="FIELD">
             <label htmlFor="secondaryImages">Secondary Images</label>
             <div>
-              <input 
+              <input type="file"
                 name="secondaryImages"
                 id="secondaryImages"
+                accept="image/png, image/jpeg"
                 placeholder="Secondary Images"
-                onChange={handleTextInputChange}
+                onChange={handleSecondaryImageUpload}
               />
             </div>
           </div>
+          
           <div className="FIELD">
             <label htmlFor="categoryTag">Category Tag</label>
             <Select 
