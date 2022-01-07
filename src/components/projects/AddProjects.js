@@ -35,7 +35,7 @@ function AddProject() {
   }
 
   const handlePrimaryImageUpload = async (e) => {
-    console.log(e.target.files)
+    // console.log(e.target.files)
     const data = new FormData()
     data.append('file', e.target.files[0])
     data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
@@ -46,7 +46,7 @@ function AddProject() {
   }
 
   const handleSecondaryImageUpload = async (e) => {
-    console.log(e.target.files)
+    // console.log(e.target.files)
     const data = new FormData()
     data.append('file', e.target.files[0])
     data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
@@ -62,7 +62,7 @@ function AddProject() {
   //   e.preventDefault()
   //   window.alert(`Submitting ${JSON.stringify(formData, null, 2)}`)
   // }
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -73,8 +73,6 @@ function AddProject() {
       console.log(err.response.data)
     }
   }
-
-  
 
   return (
     <section>
