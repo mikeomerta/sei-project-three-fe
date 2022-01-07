@@ -6,6 +6,9 @@ import axios from 'axios'
 
 function AddProject() {
   const navigate = useNavigate()
+  const [primaryCharacterCount, setPrimaryCharacterCount] = React.useState(0)
+  const [secondaryCharacterCount, setSecondaryCharacterCount] = React.useState(0)
+  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
 
   const categoryTags = [
     { value: 'art', label: 'art' },
@@ -23,8 +26,6 @@ function AddProject() {
     categoryTag: [],
   })
 
-  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
-
   const handleTextInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -35,7 +36,6 @@ function AddProject() {
   }
 
   const handlePrimaryImageUpload = async (e) => {
-    // console.log(e.target.files)
     const data = new FormData()
     data.append('file', e.target.files[0])
     data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
@@ -46,7 +46,6 @@ function AddProject() {
   }
 
   const handleSecondaryImageUpload = async (e) => {
-    // console.log(e.target.files)
     const data = new FormData()
     data.append('file', e.target.files[0])
     data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
@@ -85,13 +84,14 @@ function AddProject() {
             </div>
           </div>
           <div className="FIELD">
-            <label htmlFor="primaryDescription">Primary Description *</label>
+            <label htmlFor="primaryDescription">Primary Description* {primaryCharacterCount}/250</label>
             <div>
               <textarea 
                 name="primaryDescription"
                 id="primaryDescription"
                 placeholder="Primary Description"
                 onChange={handleTextInputChange}
+                onChangeCapture={(e) => setPrimaryCharacterCount(e.target.value.length)}
               />
             </div>
           </div>
@@ -116,13 +116,14 @@ function AddProject() {
             </div>
           }          
           <div className="FIELD">
-            <label htmlFor="secondaryDescription">Secondary Description</label>
+            <label htmlFor="secondaryDescription">Secondary Description {secondaryCharacterCount}/1000</label>
             <div>
               <textarea 
                 name="secondaryDescription"
                 id="secondaryDescription"
                 placeholder="Secondary Description"
                 onChange={handleTextInputChange}
+                onChangeCapture={(e) => setSecondaryCharacterCount(e.target.value.length)}
               />
             </div>
           </div>
