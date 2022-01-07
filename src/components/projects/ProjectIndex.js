@@ -28,7 +28,7 @@ function ProjectIndex() {
         <div className='title-and-search'>
           <h1>Projects</h1>
           <input 
-            placeholder='Search by website, user or catagory' 
+            placeholder='Search by project name' 
             type='text'
             id='input'
             onChange={handleSearch}
@@ -43,7 +43,7 @@ function ProjectIndex() {
             <button>Categories</button>
           </div>
           <div className='button'>
-            <button>Add Project</button>
+            <Link to={'/projects/create'}><button>Add Project</button></Link>
           </div>
         </div>
       </section>
@@ -65,6 +65,8 @@ function ProjectIndex() {
                 />
                 <h3 className='index-projects-indivdual-elements'>{project.projectTitle}</h3>
                 <p className='index-projects-indivdual-elements'>{project.primaryDescription}</p>
+                <p className='user-and-time'>Created By: {project.addedBy.username}</p>
+                <p className='user-and-time'>Date Created: {project.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
               </Link>
             </div>
           ))}
