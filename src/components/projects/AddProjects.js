@@ -1,7 +1,8 @@
 import Select from 'react-select'
 import React from 'react'
-import { headers } from '../lib/api'
+import { createProject } from '../lib/api'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 function AddProject() {
   const navigate = useNavigate()
@@ -22,6 +23,8 @@ function AddProject() {
     categoryTag: [],
   })
 
+  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
+
   const handleTextInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -31,11 +34,33 @@ function AddProject() {
     setFormData({ ...formData, categoryTag: selectedItems })
   }
 
+  const handlePrimaryImageUpload = async (e) => {
+    // console.log(e.target.files)
+    const data = new FormData()
+    data.append('file', e.target.files[0])
+    data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
+    setIsUploadingImage(true)
+    const res = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, data)
+    setFormData({ ...formData, primaryImage: res.data.url })
+    setIsUploadingImage(false)
+  }
+
+  const handleSecondaryImageUpload = async (e) => {
+    // console.log(e.target.files)
+    const data = new FormData()
+    data.append('file', e.target.files[0])
+    data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
+    setIsUploadingImage(true)
+    const res = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, data)
+    setFormData({ ...formData, secondaryImage: res.data.url })
+    setIsUploadingImage(false)
+  }
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const res = await headers(formData)
+      const res = await createProject(formData)
       navigate(`/projects/${res.data._id}`)
     } catch (err) {
       console.log(err.response.data)
@@ -70,39 +95,56 @@ function AddProject() {
               />
             </div>
           </div>
-          <div className="FIELD">
-            <label htmlFor="primaryImage">Primary Image *</label>
+          {isUploadingImage && <p>Image uploading</p>}
+          {formData.primaryImage ?
             <div>
-              <input 
-                name="primaryImage"
-                id="primaryImage"
-                placeholder="Primary Image"
-                onChange={handleTextInputChange}
-              />
+              <img src={formData.primaryImage} alt="uploaded primary image"/>
             </div>
-          </div>
+            :
+            <div className="FIELD">
+              <label htmlFor="primaryImage">Primary Image *</label>
+              <div>
+                <input 
+                  type="file"
+                  name="primaryImage"
+                  id="primaryImage"
+                  placeholder="Primary Image"
+                  onChange={handlePrimaryImageUpload}
+                />
+              </div>
+            </div>
+          }          
           <div className="FIELD">
             <label htmlFor="secondaryDescription">Secondary Description</label>
             <div>
               <textarea 
                 name="secondaryDescription"
                 id="secondaryDescription"
+                accept="image/png, image/jpeg"
                 placeholder="Secondary Description"
                 onChange={handleTextInputChange}
               />
             </div>
           </div>
-          <div className="FIELD">
-            <label htmlFor="secondaryImages">Secondary Images</label>
+          {formData.secondaryImage.length !== 0 ?
             <div>
-              <input 
-                name="secondaryImages"
-                id="secondaryImages"
-                placeholder="Secondary Images"
-                onChange={handleTextInputChange}
-              />
+              <img src={formData.secondaryImage} alt="uploaded secondary image"/>
             </div>
-          </div>
+            :
+            <div className="FIELD">
+              <label htmlFor="secondaryImages">Secondary Images</label>
+              <div>
+                <input 
+                  type="file"
+                  name="secondaryImages"
+                  id="secondaryImages"
+                  accept="image/png, image/jpeg"
+                  placeholder="Secondary Images"
+                  onChange={handleSecondaryImageUpload}
+                />
+              </div>
+            </div>
+          }  
           <div className="FIELD">
             <label htmlFor="categoryTag">Category Tag</label>
             <Select 

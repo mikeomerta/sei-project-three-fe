@@ -3,14 +3,18 @@ import { getToken } from '../lib/auth'
 
 const baseUrl = '/api'
 
-export function headers(formData) {
-  return axios.post('/api/projects', formData, {
+export function headers() {
+  return {
     headers: { Authorization: `Bearer ${getToken()}` },
-  })
+  }
 }
 
 export function getAllProjects() {
   return axios.get(`${baseUrl}/projects`)
+}
+
+export function createProject(formData) {
+  return axios.post('/api/projects', formData, headers())
 }
 
 export function register(formData) {
