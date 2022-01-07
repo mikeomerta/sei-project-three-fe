@@ -1,14 +1,34 @@
 import Select from 'react-select'
 import React from 'react'
-import { createProject } from '../lib/api'
-import { useNavigate } from 'react-router-dom'
+import { getSingleProject, headers } from '../lib/api'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
-function AddProject() {
+const initialState = {
+  projectTitle: '',
+  primaryDescription: '',
+  primaryImage: '',
+  secondaryDescription: '',
+  secondaryImage: [],
+  categoryTag: [],
+}
+
+function ProjectEdit() {
+  const [formData, setFormData] = React.useState(initialState)
+  const { projectId } = useParams()
   const navigate = useNavigate()
-  const [primaryCharacterCount, setPrimaryCharacterCount] = React.useState(0)
-  const [secondaryCharacterCount, setSecondaryCharacterCount] = React.useState(0)
-  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
+  
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await getSingleProject(projectId)
+        setFormData(res.data)
+      } catch (err) {
+        console.log(err.response.data.errors)
+      }
+    }
+    getData()
+  }, [projectId])
 
   const categoryTags = [
     { value: 'art', label: 'art' },
@@ -17,14 +37,7 @@ function AddProject() {
     { value: 'gaming', label: 'gaming' }
   ]
 
-  const [formData, setFormData] = React.useState({
-    projectTitle: '',
-    primaryDescription: '',
-    primaryImage: '',
-    secondaryDescription: '',
-    secondaryImage: [],
-    categoryTag: [],
-  })
+  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
 
   const handleTextInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -55,14 +68,17 @@ function AddProject() {
     setIsUploadingImage(false)
   }
   
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const res = await createProject(formData)
-      navigate(`/projects/${res.data._id}`)
+      console.log(projectId)
+      const res = await axios.put(`/api/projects/${projectId}`, formData, headers() )
+      console.log('RES', res.data.message)
+      navigate(`/projects/${projectId}`)
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err)
     }
   }
 
@@ -80,18 +96,19 @@ function AddProject() {
                 id="projectTitle"
                 placeholder="Project Title"
                 onChange={handleTextInputChange}
+                value={formData.projectTitle}
               />
             </div>
           </div>
           <div className="FIELD">
-            <label htmlFor="primaryDescription">Primary Description* {primaryCharacterCount}/250</label>
+            <label htmlFor="primaryDescription">Primary Description *</label>
             <div>
               <textarea 
                 name="primaryDescription"
                 id="primaryDescription"
                 placeholder="Primary Description"
                 onChange={handleTextInputChange}
-                onChangeCapture={(e) => setPrimaryCharacterCount(e.target.value.length)}
+                value={formData.primaryDescription}
               />
             </div>
           </div>
@@ -111,19 +128,20 @@ function AddProject() {
                   accept="image/png, image/jpeg"
                   placeholder="Primary Image"
                   onChange={handlePrimaryImageUpload}
+                  value={formData.primaryImage}
                 />
               </div>
             </div>
           }          
           <div className="FIELD">
-            <label htmlFor="secondaryDescription">Secondary Description {secondaryCharacterCount}/1000</label>
+            <label htmlFor="secondaryDescription">Secondary Description</label>
             <div>
               <textarea 
                 name="secondaryDescription"
                 id="secondaryDescription"
                 placeholder="Secondary Description"
                 onChange={handleTextInputChange}
-                onChangeCapture={(e) => setSecondaryCharacterCount(e.target.value.length)}
+                value={formData.secondaryDescription}
               />
             </div>
           </div>
@@ -142,6 +160,7 @@ function AddProject() {
                   accept="image/png, image/jpeg"
                   placeholder="Secondary Images"
                   onChange={handleSecondaryImageUpload}
+                  value={formData.secondaryImage}
                 />
               </div>
             </div>
@@ -154,6 +173,7 @@ function AddProject() {
               isMulti
               options={categoryTags}
               onChange={handleSelectInputChange}
+              value={formData.categoryTag}
             />
           </div>
           <div className="FIELD">
@@ -169,4 +189,4 @@ function AddProject() {
   )
 }
 
-export default AddProject
+export default ProjectEdit

@@ -4,17 +4,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 30px;
+}
+
+#input {
+  width: 150px;
 }
 
 .index-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 30px;
+  padding: 0px;
   .categories-div {
     padding: 0px;
     button {
+    padding: 0px 10px 0px 0px;
     border: none;
     background-color: transparent;
     }
@@ -52,12 +56,21 @@
   width: 100%;
 }
 
+.user-and-time {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
 // * Show Page
 
 .show-primary-image {
   img {
     width: 800px;
   }
+}
+
+.show-icons {
+  width: 20px;
 }
 
 // Homepage

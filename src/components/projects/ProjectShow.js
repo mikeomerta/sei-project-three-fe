@@ -1,16 +1,18 @@
-import axios from 'axios'
+
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
+import { deleteProject, getSingleProject } from '../lib/api'
 
 
 function ProjectShow() {
   const { projectId } = useParams()
+  const navigate = useNavigate()
   const [project, setProject] = React.useState(null)
 
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`/api/projects/${projectId}`)
+        const res = await getSingleProject(projectId)
         setProject(res.data)
       } catch (err) {
         console.log(err)
@@ -19,7 +21,16 @@ function ProjectShow() {
     getData()
   }, [projectId])
 
-  console.log(project)
+  const handleDelete = async () => {
+    if (window.confirm('Are you sure you want to delete this project?')) {
+      try {
+        await deleteProject(projectId)
+        navigate('/projects')
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
 
   return (
     <section>
@@ -30,6 +41,13 @@ function ProjectShow() {
           </div>
           <div>
             <button>Add To Favourites ❤️</button>
+            <Link to={`/projects/${projectId}/edit`}><button>Edit Your Project </button></Link>
+            <button onClick={handleDelete}>
+              <img 
+                src='https://i.imgur.com/ygGtZOs.png' 
+                className='show-icons'
+              />
+            </button>
           </div>
           <div>
             <h3>{project.primaryDescription}</h3>
