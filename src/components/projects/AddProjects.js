@@ -56,13 +56,6 @@ function AddProject() {
     setIsUploadingImage(false)
   }
   
-  // * To show information being passed. Can be deleted. 
-    
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   window.alert(`Submitting ${JSON.stringify(formData, null, 2)}`)
-  // }
-  
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -133,19 +126,25 @@ function AddProject() {
               />
             </div>
           </div>
-          <div className="FIELD">
-            <label htmlFor="secondaryImages">Secondary Images</label>
+          {formData.secondaryImage.length !== 0 ?
             <div>
-              <input type="file"
-                name="secondaryImages"
-                id="secondaryImages"
-                accept="image/png, image/jpeg"
-                placeholder="Secondary Images"
-                onChange={handleSecondaryImageUpload}
-              />
+              <img src={formData.secondaryImage} alt="uploaded secondary image"/>
             </div>
-          </div>
-          
+            :
+            <div className="FIELD">
+              <label htmlFor="secondaryImages">Secondary Images</label>
+              <div>
+                <input 
+                  type="file"
+                  name="secondaryImages"
+                  id="secondaryImages"
+                  accept="image/png, image/jpeg"
+                  placeholder="Secondary Images"
+                  onChange={handleSecondaryImageUpload}
+                />
+              </div>
+            </div>
+          }  
           <div className="FIELD">
             <label htmlFor="categoryTag">Category Tag</label>
             <Select 
