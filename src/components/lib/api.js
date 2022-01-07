@@ -13,8 +13,16 @@ export function getAllProjects() {
   return axios.get(`${baseUrl}/projects`)
 }
 
+export function getSingleProject(projectId) {
+  return axios.get(`/api/projects/${projectId}`)
+}
+
 export function createProject(formData) {
   return axios.post('/api/projects', formData, headers())
+}
+
+export function deleteProject(projectId) {
+  return axios.delete(`/api/projects/${projectId}`, headers())
 }
 
 export function register(formData) {
