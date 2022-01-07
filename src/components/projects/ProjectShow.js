@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { deleteProject, getSingleProject } from '../lib/api'
 
 
@@ -41,6 +41,7 @@ function ProjectShow() {
           </div>
           <div>
             <button>Add To Favourites ❤️</button>
+            <Link to={`/projects/${projectId}/edit`}><button>Edit Your Project </button></Link>
             <button onClick={handleDelete}>
               <img 
                 src='https://i.imgur.com/ygGtZOs.png' 

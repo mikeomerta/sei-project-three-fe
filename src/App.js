@@ -6,6 +6,7 @@ import Login from './components/auth/Login'
 import ProjectShow from './components/projects/ProjectShow'
 import ProjectIndex from './components/projects/ProjectIndex'
 import AddProject from './components/projects/AddProjects'
+import ProjectEdit from './components/projects/ProjectEdit'
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path = '/login' element = {<Login />} />
         <Route path = "/projects" element = {<ProjectIndex />} />
         <Route path = "/projects/:projectId" element = {<ProjectShow />} />   
-        <Route path = "/projects/create" element = {<AddProject />} />      
+        <Route path = "/projects/create" element = {<AddProject />} />
+        <Route path = "/projects/:projectId/edit" element = {<ProjectEdit />} />      
       </Routes>
     </BrowserRouter>
   )
