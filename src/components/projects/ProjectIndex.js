@@ -1,14 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { getAllProjects } from '../lib/api'
 import Error from '../common/Error'
 import Loading from '../common/Loading'
+import { isAuthenticated } from '../lib/auth'
 
 function ProjectIndex() {
   const [projects, setProjects] = React.useState([])
   const [keyword, setKeyword] = React.useState('')
   const [isError, setIsError] = React.useState(false)
   const isLoading = !projects && !isError
+
+  const isAuth = isAuthenticated()
+  useLocation()
 
   React.useEffect(() => {
     const getData = async () => {
@@ -46,9 +50,10 @@ function ProjectIndex() {
             <button>Archive</button>
             <button>Categories</button>
           </div>
+          {isAuth && 
           <div className='button'>
-            <Link to={'/projects/create'}><button>Add Project</button></Link>
-          </div>
+            <Link to="/projects/create"><button>Add Project</button></Link>
+          </div>}
         </div>
       </section>
       <section>

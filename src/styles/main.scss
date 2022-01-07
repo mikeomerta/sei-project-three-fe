@@ -1,3 +1,156 @@
+$primarygray: #312727;
+
+// * NavBar
+
+nav {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  a {
+    text-decoration: none;
+    color: $primarygray;
+  }
+}
+
+#logo {
+  width: 90px;
+  margin: 0px 0px 0px 10px;
+}
+
+.primary-nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.nav-right {
+  margin: 7px 10px 0px 0px;
+  font-size: 16px;
+}
+
+.nav-button {
+  margin: 0px 15px 0px 0px;
+  background-color: $primarygray;
+  color: white;
+  padding: 4px 22px 7px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.logout-button {
+  margin: 0px 0px 0px 15px;
+  background-color: $primarygray;
+  color: white;
+  padding: 4px 22px 7px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.secondary-nav {
+  margin: 12px 0px;
+  a {
+  padding: 0px 20px;
+  text-decoration: none;
+  color: $primarygray;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  }
+}
+
+.hero {
+  background-color: rgb(156, 129, 255);
+}
+
+.home-section {
+  height: 550px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    width: 500px;
+  }
+}
+
+.home-img {
+  width: 400px;
+  margin: 0px 10px;
+}
+
+.home-button {
+  margin: 30px 0px 0px 10px;
+  background-color: $primarygray;
+  color: white;
+  padding: 10px 20px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.home h1 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: $primarygray;
+  text-transform: uppercase;
+  font-size: 40px;
+  margin: 0px 10px;
+}
+
+.home p {
+  font-family: 'Noto Sans', sans-serif;
+  color: $primarygray;
+  font-size: 14px;
+  margin: 0px 10px;
+}
+
+.home h3 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: $primarygray;
+  font-size: 18px;
+  margin: 0px 10px 30px;
+}
+
+.home h2 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: $primarygray;
+  font-size: 20px;
+  text-align: center;
+}
+
+.projects-we-love {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.projects-we-love-single {
+  width: 15%;
+  margin: 10px;
+}
+
+.projects-we-love-title {
+  margin: 10px 0px 0px 0px
+}
+
+#projects-we-love-title {
+  margin: 50px 0px 20px 10px;
+}
+
+.hero-para {
+  width: 500px;
+}
+
 // * Index Page
 
 .title-and-search {
