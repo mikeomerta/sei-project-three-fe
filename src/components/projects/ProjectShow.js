@@ -3,12 +3,16 @@ import React from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { deleteProject, getSingleProject } from '../lib/api'
 import { isOwner } from '../lib/auth'
+import Error from '../common/Error'
+import Loading from '../common/Loading'
 
 
 function ProjectShow() {
   const { projectId } = useParams()
   const navigate = useNavigate()
   const [project, setProject] = React.useState(null)
+  const [isError, setIsError] = React.useState(false)
+  const isLoading = !project && !isError
 
   React.useEffect(() => {
     const getData = async () => {
@@ -16,7 +20,7 @@ function ProjectShow() {
         const res = await getSingleProject(projectId)
         setProject(res.data)
       } catch (err) {
-        console.log(err)
+        setIsError(true)
       }
     }
     getData()
@@ -37,7 +41,9 @@ function ProjectShow() {
 
   return (
     <section>
-      {project ? (
+      {isLoading && <Loading />}
+      {isError && <Error />}
+      {project &&
         <div className='center'>
           <div>
             <h1>{project.projectTitle}</h1>
@@ -72,9 +78,7 @@ function ProjectShow() {
               alt={project.projectTitle} />
           </div>
         </div>
-      ) : (
-        <p>Loading..</p>
-      )}
+      }
     </section>
   )
 }

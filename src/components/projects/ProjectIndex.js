@@ -1,10 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { getAllProjects } from '../lib/api'
+import Error from '../common/Error'
+import Loading from '../common/Loading'
 
 function ProjectIndex() {
   const [projects, setProjects] = React.useState([])
   const [keyword, setKeyword] = React.useState('')
+  const [isError, setIsError] = React.useState(false)
+  const isLoading = !projects && !isError
 
   React.useEffect(() => {
     const getData = async () => {
@@ -12,7 +16,7 @@ function ProjectIndex() {
         const res = await getAllProjects()
         setProjects(res.data)
       } catch (err) {
-        console.log(err)
+        setIsError(true)
       }
     }
     getData()
@@ -48,6 +52,9 @@ function ProjectIndex() {
         </div>
       </section>
       <section>
+        {isLoading && <Loading />}
+        {isError && <Error />}
+        {projects &&
         <div className='index-projects'>
           {projects.filter(project => {
             if (keyword === '') {
@@ -71,6 +78,7 @@ function ProjectIndex() {
             </div>
           ))}
         </div>
+        }
       </section>
     </>
   )
