@@ -108,6 +108,7 @@ function AddProject() {
                   type="file"
                   name="primaryImage"
                   id="primaryImage"
+                  accept="image/png, image/jpeg"
                   placeholder="Primary Image"
                   onChange={handlePrimaryImageUpload}
                 />
@@ -120,7 +121,6 @@ function AddProject() {
               <textarea 
                 name="secondaryDescription"
                 id="secondaryDescription"
-                accept="image/png, image/jpeg"
                 placeholder="Secondary Description"
                 onChange={handleTextInputChange}
               />
