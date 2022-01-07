@@ -23,23 +23,34 @@ function ProjectShow() {
 
   return (
     <section>
-      {/* <div className='center'>
-        <div>
-          <h1>{project.projectTitle}</h1>
+      {project ? (
+        <div className='center'>
+          <div>
+            <h1>{project.projectTitle}</h1>
+          </div>
+          <div>
+            <button>Add To Favourites ❤️</button>
+          </div>
+          <div>
+            <h3>{project.primaryDescription}</h3>
+          </div>
+          <div className='show-primary-image'>
+            <img src={project.primaryImage} alt={project.projectTitle} />
+          </div>
+          <div>
+            <p>{project.secondaryDescription}</p>
+          </div>
+          <div className='show-primary-image'>
+            <img 
+              src={project.secondaryImage.map(image => {
+                console.log(image)
+              })} 
+              alt={project.projectTitle} />
+          </div>
         </div>
-        <div>
-          <button>Add To Favourites ❤️</button>
-        </div>
-        <div>
-          <h3>{project.primaryDescription}</h3>
-        </div>
-        <div className='show-primary-image'>
-          <img src={project.primaryImage} alt={project.projectTitle} />
-        </div>
-        <div>
-          <p>{project.secondaryDescription}</p>
-        </div>
-      </div> */}
+      ) : (
+        <p>Loading..</p>
+      )}
     </section>
   )
 }
