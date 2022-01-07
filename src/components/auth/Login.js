@@ -32,44 +32,56 @@ function Login() {
   
   return (
     <section>
-      <div>
-        <form
-          onSubmit={handleSubmit}
-        >
-          <div className="FIELD">
-            <label htmlFor="email">Email</label>
-            <div>
-              <input 
-                name="email"
-                id="email"
-                placeholder="email"
-                onChange={handleInputChange}
-              />
+      <div className='form-page'>
+        <div className='form-left'>
+
+        </div>
+        <div className='form-right'>
+          <form
+            className='form'
+            onSubmit={handleSubmit}
+          >
+            <div className="form-field">
+              <label htmlFor="email">Email</label>
+              <div>
+                <input 
+                  className='input'
+                  name="email"
+                  id="email"
+                  placeholder="email"
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="FIELD">
-            <label htmlFor="password">Password</label>
-            <div>
-              <input 
-                type="password"
-                name="password"
-                id="password"
-                placeholder="password"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="FIELD">
-            <div>
-              <button 
-                type="submit"
-              >Log Me In!</button>
+            <div className="form-field">
+              <label htmlFor="password">Password</label>
+              <div>
+                <input 
+                  className='input'
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
             <div>
-              <p>Not a member?  <Link to="/register">Click here</Link></p> 
+              <div className='button-div'
+                htmlFor="button">
+                <button 
+                  id="button"
+                  className='button'
+                  type="submit"
+                >Log Me In!</button>
+              </div>
+              <div className='opposite-text'>
+                <p>Not a member?  <Link to="/register">Click here</Link></p> 
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        
       </div>
     </section>
   )

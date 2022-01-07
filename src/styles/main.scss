@@ -110,3 +110,370 @@
     align-items: right;
   }
 }
+
+
+
+
+// Log in and Registration pages
+
+.form-page {
+  background-image: url('./images-dh/form-background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  border-radius: 10%;
+  filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
+  margin: 100px 50px;
+  height: 70vh;
+  display: flex;
+  @media only screen and (max-width: 600px) {
+    margin: 20px 10px;
+  }
+  @media only screen and (max-height: 500px) {
+    margin: 50px 0 0 0;
+  }
+  .form-left {
+    width: 50%;
+    @media only screen and (max-width: 600px) {
+    display: none;
+    }
+    @media only screen and (max-height: 500px) {
+      display: none;
+    }
+  }
+  .form-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media only screen and (max-width: 600px) {
+    width: 100%;
+    }
+    @media only screen and (max-height: 500px) {
+      text-align: center;
+      width: 100%;
+    }
+    .form {
+      .form-field {
+        margin: 20px;
+        @media only screen and (max-width: 600px) {
+          text-align: center;
+        }
+        .input {
+          margin-top: 10px;
+          padding-left: 10px;
+          height: 40px;
+          width: 500px;
+          background-color: rgba(0, 0, 0, 0.137);
+          border-radius: 5%;
+          color: white;
+          font-style: italic;
+          @media only screen and (max-width: 600px) {
+            width: 250px;
+          }
+          @media only screen and (max-height: 500px) {
+            text-align: center;
+            color: black;
+          }
+        }
+      }
+      .button-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 510px;
+        margin: 20px;
+        border-radius: 5%;
+        background-color: rgba(0, 0, 0, 0.425);
+        box-shadow: 0px 0px 5px 2px rgba(8, 5, 5, 1);
+        @media only screen and (max-width: 600px) {
+          width: 270px;
+        }
+        .button {
+          height: 40px;
+          width: 510px;
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          color: white;
+          font-weight: 500;
+        }
+        .button:hover {
+          font-weight: 800;
+        }
+        .button:focus {
+          transition: 1s;
+          font-size: 10px;
+          font-weight: 50;
+        }
+      }
+      .opposite-text {
+        text-align: center;
+        margin: 0 20px;
+        color: whitesmoke;
+      }
+    }
+  }
+}
+
+// Add project page
+
+.edit-project-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.219)) , url('./images-dh/edit-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  border-radius: 10%;
+  filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
+  margin: 10px 50px;
+  height: 1500px;
+  color: white;
+  @media only screen and (max-width: 600px) {
+    margin: 20px 10px;
+  }
+  @media only screen and (max-height: 500px) {
+    margin: 20px 0 0 0;
+    height: 1000px;
+  }
+  .form {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    @media only screen and (max-width: 600px) {
+    width: 100%;
+    }
+    @media only screen and (max-height: 500px) {
+      text-align: center;
+      width: 100%;
+    }
+      .form-field {
+        margin: 20px;
+        @media only screen and (max-width: 600px) {
+          text-align: center;
+        }
+        .input {
+          margin-top: 10px;
+          padding-left: 10px;
+          height: 40px;
+          width: 800px;
+          background-color: rgba(0, 0, 0, 0.137);
+          border-radius: 5%;
+          color: white;
+          font-style: italic;
+          @media only screen and (max-width: 600px) {
+            width: 250px;
+          }
+          @media only screen and (max-height: 500px) {
+            text-align: center;
+            color: black;
+          }
+        }
+        .input-text-area {
+          margin-top: 10px;
+          padding-left: 10px;
+          height: 90px;
+          width: 800px;
+          background-color: rgba(0, 0, 0, 0.137);
+          border-radius: 5%;
+          color: white;
+          font-style: italic;
+          @media only screen and (max-width: 600px) {
+            width: 250px;
+          }
+          @media only screen and (max-height: 500px) {
+            text-align: center;
+            color: black;
+          }
+        }
+        .css-1s2u09g-control {
+          margin-top: 10px;
+          padding-left: 10px;
+          height: 90px;
+          width: 820px;
+          background-color: rgba(0, 0, 0, 0.137);
+          border-radius: 5%;
+          color: black;
+          font-style: italic;
+          @media only screen and (max-width: 600px) {
+            width: 270px;
+          }
+          @media only screen and (max-height: 500px) {
+            width: 820px;
+            text-align: center;
+            color: black;
+          }
+          .css-14el2xx-placeholder {
+            color: black;
+          }
+        }
+      }
+      .button-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 820px;
+        margin: 20px;
+        border-radius: 5%;
+        background-color: rgba(0, 0, 0, 0.425);
+        box-shadow: 0px 0px 5px 2px rgba(8, 5, 5, 1);
+        @media only screen and (max-width: 600px) {
+          width: 270px;
+        }
+        @media only screen and (max-height: 500px) {
+          width: 820px;
+        }
+        .button {
+          height: 40px;
+          width: 510px;
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          color: white;
+          font-weight: 500;
+        }
+        .button:hover {
+          font-weight: 800;
+        }
+        .button:focus {
+          transition: 1s;
+          font-size: 10px;
+          font-weight: 50;
+        }
+      }
+      .opposite-text {
+        text-align: center;
+        margin: 0 20px;
+        color: whitesmoke;
+      }
+  }
+}
+.add-project-page {
+  background-image: url('./images-dh/add-project-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  border-radius: 10%;
+  filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
+  margin: 10px 50px;
+  height: 1500px;
+  @media only screen and (max-width: 600px) {
+    margin: 20px 10px;
+  }
+  @media only screen and (max-height: 500px) {
+    margin: 20px 0 0 0;
+    height: 1000px;
+  }
+  .form {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    @media only screen and (max-width: 600px) {
+    width: 100%;
+    }
+    @media only screen and (max-height: 500px) {
+      text-align: center;
+      width: 100%;
+    }
+      .form-field {
+        margin: 20px;
+        @media only screen and (max-width: 600px) {
+          text-align: center;
+        }
+        .input {
+          margin-top: 10px;
+          padding-left: 10px;
+          height: 40px;
+          width: 800px;
+          background-color: rgba(0, 0, 0, 0.137);
+          border-radius: 5%;
+          color: white;
+          font-style: italic;
+          @media only screen and (max-width: 600px) {
+            width: 250px;
+          }
+          @media only screen and (max-height: 500px) {
+            text-align: center;
+            color: black;
+          }
+        }
+        .input-text-area {
+          margin-top: 10px;
+          padding-left: 10px;
+          height: 90px;
+          width: 800px;
+          background-color: rgba(0, 0, 0, 0.137);
+          border-radius: 5%;
+          color: white;
+          font-style: italic;
+          @media only screen and (max-width: 600px) {
+            width: 250px;
+          }
+          @media only screen and (max-height: 500px) {
+            text-align: center;
+            color: black;
+          }
+        }
+        .css-1s2u09g-control {
+          margin-top: 10px;
+          padding-left: 10px;
+          height: 90px;
+          width: 820px;
+          background-color: rgba(0, 0, 0, 0.137);
+          border-radius: 5%;
+          color: black;
+          font-style: italic;
+          @media only screen and (max-width: 600px) {
+            width: 270px;
+          }
+          @media only screen and (max-height: 500px) {
+            width: 820px;
+            text-align: center;
+            color: black;
+          }
+          .css-14el2xx-placeholder {
+            color: black;
+          }
+        }
+      }
+      .button-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 820px;
+        margin: 20px;
+        border-radius: 5%;
+        background-color: rgba(0, 0, 0, 0.425);
+        box-shadow: 0px 0px 5px 2px rgba(8, 5, 5, 1);
+        @media only screen and (max-width: 600px) {
+          width: 270px;
+        }
+        @media only screen and (max-height: 500px) {
+          width: 820px;
+        }
+        .button {
+          height: 40px;
+          width: 510px;
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          color: white;
+          font-weight: 500;
+        }
+        .button:hover {
+          font-weight: 800;
+        }
+        .button:focus {
+          transition: 1s;
+          font-size: 10px;
+          font-weight: 50;
+        }
+      }
+      .opposite-text {
+        text-align: center;
+        margin: 0 20px;
+        color: whitesmoke;
+      }
+  }
+}
