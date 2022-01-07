@@ -54,38 +54,10 @@
 
 // * Show Page
 
-.body-container {
-  font-family:Verdana, Geneva, Tahoma, sans-serif
-}
-
-.header-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.hero-container {
-  display: flex;
-  justify-content: center;
-}
-
-.project-title {
-  display: flex;
-  align-items: center;
-  font-size: 25px
-}
-
-.button-container {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 30px;
-}
-
-.secondary-image-container {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 0 10px 0;
+.show-primary-image {
+  img {
+    width: 800px;
+  }
 }
 
 // Homepage

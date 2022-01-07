@@ -1,6 +1,6 @@
 import Select from 'react-select'
 import React from 'react'
-import { headers } from '../lib/api'
+import { createProject } from '../lib/api'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -60,7 +60,7 @@ function AddProject() {
     e.preventDefault()
 
     try {
-      const res = await headers(formData)
+      const res = await createProject(formData)
       navigate(`/projects/${res.data._id}`)
     } catch (err) {
       console.log(err.response.data)
