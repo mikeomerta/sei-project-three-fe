@@ -1,4 +1,6 @@
 $primarygray: #312727;
+$mobile: 600px;
+$tablet: 900px;
 
 // * NavBar
 
@@ -54,7 +56,9 @@ nav {
 }
 
 .secondary-nav {
-  margin: 12px 0px;
+  margin: 12px 0px 0px;
+  border-bottom: 1px solid rgb(235, 234, 234);
+  padding: 0px 0px 15px 0px;
   a {
   padding: 0px 20px;
   text-decoration: none;
@@ -65,7 +69,17 @@ nav {
 }
 
 .hero {
-  background-color: rgb(156, 129, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(157, 130, 255);
+  height: 480px;
+  @media screen and (max-width:$tablet) {
+    height: 300px;
+    p {
+      width: 400px;
+    }
+  }
 }
 
 .home-section {
@@ -74,13 +88,23 @@ nav {
   justify-content: space-between;
   align-items: center;
   p {
-    width: 500px;
+    width: 600px;
+  }
+  @media screen and (max-width:$tablet) {
+    justify-content: center;
+    height: 300px;
+    p {
+      width: 400px;
+    }
   }
 }
 
 .home-img {
   width: 400px;
   margin: 0px 10px;
+  @media screen and (max-width:$tablet) {
+    display: none;
+  }
 }
 
 .home-button {
@@ -132,6 +156,9 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media screen and (max-width:$tablet) {
+    display: none;
+  }
 }
 
 .projects-we-love-single {
@@ -140,7 +167,10 @@ nav {
 }
 
 .projects-we-love-title {
-  margin: 10px 0px 0px 0px
+  margin: 10px 0px 0px 0px;
+  @media screen and (max-width:$tablet) {
+    display: none;
+  }
 }
 
 #projects-we-love-title {
@@ -153,72 +183,89 @@ nav {
 
 // * Index Page
 
-.title-and-search {
+.index-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 10px;
+  @media screen and (max-width:$mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.index h1 {
+  margin: 10px 0px 0px 10px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: $primarygray;
+  font-size: 24px;
+  @media screen and (max-width:$mobile) {
+    margin: 10px 0px 10px 0px;
+  }
+}
+
+.index input {
+  border: 1px solid rgb(194, 194, 194);
+  padding: 3px 0px 3px 4px;
+  border-radius: 4px;
 }
 
 #input {
   width: 150px;
 }
 
-.index-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px;
-  .categories-div {
-    padding: 0px;
-    button {
-    padding: 0px 10px 0px 0px;
-    border: none;
-    background-color: transparent;
-    }
-  }
-  .button button {
-    background-color: transparent;
-    border: 1px solid grey;
-    border-radius: 25px;
-    padding: 4px 8px;
-  }
-}
-
-.index-projects {
-  margin: 20px 5px 0px 5px;
-  justify-content: center;
+.index-gallery {
+  margin: 30px 0px 0px 0px;
   display: flex;
   flex-wrap: wrap;
-  h3 {
-    color: black;
-  }
-  p {
-    color: grey;
-  }
+  justify-content: center;
   a {
     text-decoration: none;
   }
 }
 
-.index-projects-indivdual {
-  width: 22%;
-  margin: 10px;
+.index-card {
+  height: 100%;
+  margin: 0px 0px 30px 0px;
 }
 
-.index-projects-indivdual-elements {
-  width: 100%;
+.index-img, .index-info {
+    width: 250px;
+    margin: 0px 10px;
 }
 
-.user-and-time {
-  text-transform: uppercase;
+.index-img {
+  border-radius: 5px;
+}
+
+.index h3 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: $primarygray;
+  font-size: 18px;
+}
+
+.gallery-title {
+  font-family: 'Noto Sans', sans-serif;
+  color: #8f8f8f;
   font-size: 13px;
+}
+
+.user {
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0px;
+  color: $primarygray;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 // * Show Page
 
 .show-primary-image {
   img {
-    width: 800px;
+    width: 600px;
   }
 }
 

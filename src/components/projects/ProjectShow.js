@@ -44,13 +44,14 @@ function ProjectShow() {
       {isLoading && <Loading />}
       {isError && <Error />}
       {project &&
-        <div className='center'>
-          <div>
-            <h1>{project.projectTitle}</h1>
-          </div>
-          <div>
-            <button>Add To Favourites ❤️</button>
-            {isOwner(project.addedBy._id) && 
+        <div className='show'>
+          <div className='right-side'>
+            <div>
+              <h1>{project.projectTitle}</h1>
+            </div>
+            <div>
+              <button>Add To Favourites ❤️</button>
+              {isOwner(project.addedBy._id) && 
             <>
               <Link to={`/projects/${projectId}/edit`}><button>Edit Your Project </button></Link>
               <button onClick={handleDelete}>
@@ -60,23 +61,26 @@ function ProjectShow() {
                 />
               </button>
             </>}
+            </div>
+            <div>
+              <h3>{project.primaryDescription}</h3>
+            </div>
+            <div>
+              <p>{project.secondaryDescription}</p>
+            </div>
           </div>
-          <div>
-            <h3>{project.primaryDescription}</h3>
+          <div className='left-side'>
+            <div className='show-primary-image'>
+              <img src={project.primaryImage} alt={project.projectTitle} />
+            </div>
           </div>
-          <div className='show-primary-image'>
-            <img src={project.primaryImage} alt={project.projectTitle} />
-          </div>
-          <div>
-            <p>{project.secondaryDescription}</p>
-          </div>
-          <div className='show-primary-image'>
+          {/* <div className='show-primary-image'>
             <img 
               src={project.secondaryImage.map(image => {
                 console.log(image)
               })} 
               alt={project.projectTitle} />
-          </div>
+          </div> */}
         </div>
       }
     </section>
