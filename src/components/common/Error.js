@@ -1,7 +1,7 @@
 function Error() {
   return (
-    <div>
-      <p>Oops, something went wrong</p>
+    <div className = "error-image">
+      <img src='https://i.imgur.com/InHKTiS.png' />
     </div>
   )
 }

@@ -4,11 +4,22 @@ import { createProject } from '../lib/api'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+const intialState = {
+  projectTitle: '',
+  primaryDescription: '',
+  primaryImage: '',
+  secondaryDescription: '',
+  secondaryImage: [],
+  categoryTag: [],
+}
+
 function AddProject() {
   const navigate = useNavigate()
   const [primaryCharacterCount, setPrimaryCharacterCount] = React.useState(0)
   const [secondaryCharacterCount, setSecondaryCharacterCount] = React.useState(0)
   const [isUploadingImage, setIsUploadingImage] = React.useState(false)
+  const [formData, setFormData] = React.useState(intialState)
+  const [formErrors, setFormErrors] = React.useState(intialState)
 
   const categoryTags = [
     { value: 'art', label: 'art' },
@@ -17,17 +28,9 @@ function AddProject() {
     { value: 'gaming', label: 'gaming' }
   ]
 
-  const [formData, setFormData] = React.useState({
-    projectTitle: '',
-    primaryDescription: '',
-    primaryImage: '',
-    secondaryDescription: '',
-    secondaryImage: [],
-    categoryTag: [],
-  })
-
   const handleTextInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormErrors({ ...formErrors,  [e.target.name]: '' })
   }
 
   const handleSelectInputChange = (e) => {
@@ -62,7 +65,7 @@ function AddProject() {
       const res = await createProject(formData)
       navigate(`/projects/${res.data._id}`)
     } catch (err) {
-      console.log(err.response.data)
+      setFormErrors(err.response.data.errors)
     }
   }
 
@@ -82,6 +85,7 @@ function AddProject() {
                 onChange={handleTextInputChange}
               />
             </div>
+            {formErrors.projectTitle && <p>Project Title is a required field</p>}
           </div>
           <div className="FIELD">
             <label htmlFor="primaryDescription">Primary Description* {primaryCharacterCount}/250</label>
@@ -94,6 +98,8 @@ function AddProject() {
                 onChangeCapture={(e) => setPrimaryCharacterCount(e.target.value.length)}
               />
             </div>
+            {primaryCharacterCount === 250 && <p>Too many characters</p>}
+            {formErrors.primaryDescription && <p>Primary Description is a required field</p>}
           </div>
           {isUploadingImage && <p>Image uploading</p>}
           {formData.primaryImage ?
@@ -113,6 +119,7 @@ function AddProject() {
                   onChange={handlePrimaryImageUpload}
                 />
               </div>
+              {formErrors.primaryImage && <p>Primary Image is a required field</p>}
             </div>
           }          
           <div className="FIELD">
@@ -126,6 +133,7 @@ function AddProject() {
                 onChangeCapture={(e) => setSecondaryCharacterCount(e.target.value.length)}
               />
             </div>
+            {secondaryCharacterCount === 1000 && <p>Too many characters</p>}
           </div>
           {formData.secondaryImage.length !== 0 ?
             <div>

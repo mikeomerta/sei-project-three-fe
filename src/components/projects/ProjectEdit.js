@@ -15,16 +15,20 @@ const initialState = {
 
 function ProjectEdit() {
   const [formData, setFormData] = React.useState(initialState)
+  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
+  const [formErrors, setFormErrors] = React.useState(initialState)
+  const [primaryCharacterCount, setPrimaryCharacterCount] = React.useState(0)
+  const [secondaryCharacterCount, setSecondaryCharacterCount] = React.useState(0)
   const { projectId } = useParams()
   const navigate = useNavigate()
-  
+    
   React.useEffect(() => {
     const getData = async () => {
       try {
         const res = await getSingleProject(projectId)
         setFormData(res.data)
       } catch (err) {
-        console.log(err.response.data.errors)
+        setFormErrors(err.response.data.errors)
       }
     }
     getData()
@@ -37,15 +41,14 @@ function ProjectEdit() {
     { value: 'gaming', label: 'gaming' }
   ]
 
-  const [isUploadingImage, setIsUploadingImage] = React.useState(false)
-
   const handleTextInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormErrors({ ...formErrors,  [e.target.name]: '' })
   }
 
   const handleSelectInputChange = (e) => {
     const selectedItems = e ? e.map(item => item.value) : []
-    setFormData({ ...formData, categoryTag: selectedItems })
+    setFormData({ ...formData, categoryTag: selectedItems })    
   }
 
   const handlePrimaryImageUpload = async (e) => {
@@ -67,8 +70,7 @@ function ProjectEdit() {
     setFormData({ ...formData, secondaryImage: res.data.url })
     setIsUploadingImage(false)
   }
-  
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -78,7 +80,7 @@ function ProjectEdit() {
       console.log('RES', res.data.message)
       navigate(`/projects/${projectId}`)
     } catch (err) {
-      console.log(err)
+      setFormErrors(err.response.data.errors)
     }
   }
 
@@ -99,18 +101,22 @@ function ProjectEdit() {
                 value={formData.projectTitle}
               />
             </div>
+            {formErrors.projectTitle && <p>Project Title is a required field</p>}
           </div>
           <div className="FIELD">
-            <label htmlFor="primaryDescription">Primary Description *</label>
+            <label htmlFor="primaryDescription">Primary Description* {primaryCharacterCount}/250</label>
             <div>
               <textarea 
                 name="primaryDescription"
                 id="primaryDescription"
                 placeholder="Primary Description"
                 onChange={handleTextInputChange}
+                onChangeCapture={(e) => setPrimaryCharacterCount(e.target.value.length)}
                 value={formData.primaryDescription}
               />
             </div>
+            {primaryCharacterCount === 250 && <p>Too many characters</p>}
+            {formErrors.primaryDescription && <p>Primary Description is a required field</p>}
           </div>
           {isUploadingImage && <p>Image uploading</p>}
           {formData.primaryImage ?
@@ -131,19 +137,22 @@ function ProjectEdit() {
                   value={formData.primaryImage}
                 />
               </div>
+              {formErrors.primaryImage && <p>Primary Image is a required field</p>}
             </div>
           }          
           <div className="FIELD">
-            <label htmlFor="secondaryDescription">Secondary Description</label>
+            <label htmlFor="secondaryDescription">Secondary Description {secondaryCharacterCount}/1000</label>
             <div>
               <textarea 
                 name="secondaryDescription"
                 id="secondaryDescription"
                 placeholder="Secondary Description"
                 onChange={handleTextInputChange}
+                onChangeCapture={(e) => setSecondaryCharacterCount(e.target.value.length)}
                 value={formData.secondaryDescription}
               />
             </div>
+            {secondaryCharacterCount === 1000 && <p>Too many characters</p>}
           </div>
           {formData.secondaryImage.length !== 0 ?
             <div>

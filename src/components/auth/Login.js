@@ -12,6 +12,8 @@ function Login() {
 
   const navigate = useNavigate()
 
+  const [isError, setIsError] = React.useState(false)
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -24,7 +26,7 @@ function Login() {
       setToken(res.data.token)
       navigate('/projects')
     } catch (err) {
-      console.log(err.response.data)
+      setIsError(true)
     }
   }
 
@@ -59,6 +61,9 @@ function Login() {
               />
             </div>
           </div>
+          {isError && (
+            <p>Email or Password were incorrect. Please try again.</p>
+          )}
           <div className="FIELD">
             <div>
               <button 

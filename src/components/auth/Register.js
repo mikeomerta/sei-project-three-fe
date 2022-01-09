@@ -2,19 +2,23 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom' 
 import { register } from '../lib/api'
 
+const intialState = {
+  username: '',
+  email: '',
+  password: '',
+  passwordConfirmation: '',
+}
+
 function Registration() {
 
-  const [formData, setFormData] = React.useState({
-    username: '',
-    email: '',
-    password: '',
-    passwordConfirmation: '',
-  })
+  const [formData, setFormData] = React.useState(intialState)
+  const [formErrors, setFormErrors] = React.useState(intialState)
 
   const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormErrors({ ...formErrors,  [e.target.name]: '' })
   }
 
   const handleSubmit = async (e) => {
@@ -23,9 +27,11 @@ function Registration() {
       await register(formData)
       navigate('/login')
     } catch (err) {
-      throw new Error()
+      setFormErrors(err.response.data.errors)
     }
   }
+
+  console.log('formErrors', formErrors)
 
   return (
     <section>
@@ -43,6 +49,7 @@ function Registration() {
                 onChange={handleInputChange}
               />
             </div>
+            {formErrors.username && <p>Username is a required field</p>}
           </div>
           <div className="FIELD">
             <label htmlFor="email">Email</label>
@@ -54,6 +61,7 @@ function Registration() {
                 onChange={handleInputChange}
               />
             </div>
+            {formErrors.email && <p>Email is required field</p>}
           </div>
           <div className="FIELD">
             <label htmlFor="password">Password</label>
@@ -66,6 +74,7 @@ function Registration() {
                 onChange={handleInputChange}
               />
             </div>
+            {formErrors.password && <p>Password is a required field</p>}
           </div>
           <div className="FIELD">
             <label htmlFor="passwordConfirmation">Password Confirmation</label>
@@ -78,6 +87,7 @@ function Registration() {
                 onChange={handleInputChange}
               />
             </div>
+            {formErrors.passwordConfirmation && <p>Passwords do not match</p>}
           </div>
           <div className="FIELD">
             <div>
