@@ -45,34 +45,45 @@ function ProjectShow() {
       {isError && <Error />}
       {project &&
         <div className='show'>
-          <div className='right-side'>
-            <div>
-              <h1>{project.projectTitle}</h1>
-            </div>
-            <div>
-              <button>Add To Favourites ❤️</button>
-              {isOwner(project.addedBy._id) && 
-            <>
-              <Link to={`/projects/${projectId}/edit`}><button>Edit Your Project </button></Link>
-              <button onClick={handleDelete}>
-                <img 
-                  src='https://i.imgur.com/ygGtZOs.png' 
-                  className='show-icons'
-                />
-              </button>
-            </>}
-            </div>
-            <div>
-              <h3>{project.primaryDescription}</h3>
-            </div>
-            <div>
-              <p>{project.secondaryDescription}</p>
-            </div>
+          <div className='left-side show-primary-image'>
+            <img 
+              src={project.primaryImage} 
+              alt={project.projectTitle}
+            />
           </div>
-          <div className='left-side'>
-            <div className='show-primary-image'>
-              <img src={project.primaryImage} alt={project.projectTitle} />
+          <div className='right-side'>
+            <h1>{project.projectTitle}</h1>
+            <p className='user-show'>Created By: {project.addedBy.username}</p>
+            <p className='user-show'>Date Created: {project.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
+            <div className='buttons'>
+              {!isOwner(project.addedBy._id) ? ( 
+                <button className='favourites'>
+                  <img 
+                    src='https://i.imgur.com/hN82Ce2.png'
+                    className='show-icons' 
+                  />
+                  <p>Add To Favourites</p>
+                </button>
+              ) : (
+                <>
+                  <Link to={`/projects/${projectId}/edit`}>
+                    <button>
+                      <img 
+                        src='https://i.imgur.com/nqQ6yj1.png'
+                        className='show-icons' 
+                      />
+                    </button>
+                  </Link>
+                  <button onClick={handleDelete}>
+                    <img 
+                      src='https://i.imgur.com/ygGtZOs.png' 
+                      className='show-icons'
+                    />
+                  </button>
+                </>)}
             </div>
+            <h4>{project.primaryDescription}</h4>
+            <p className='description-show'>{project.secondaryDescription}</p>
           </div>
           {/* <div className='show-primary-image'>
             <img 
