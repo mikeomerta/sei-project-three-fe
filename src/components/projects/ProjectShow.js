@@ -5,6 +5,7 @@ import { deleteProject, getSingleProject } from '../lib/api'
 import { isOwner } from '../lib/auth'
 import Error from '../common/Error'
 import Loading from '../common/Loading'
+import AddComment from './AddComment'
 
 
 function ProjectShow() {
@@ -25,6 +26,7 @@ function ProjectShow() {
     }
     getData()
   }, [projectId])
+
 
   console.log(project)
 
@@ -94,6 +96,10 @@ function ProjectShow() {
           </div> */}
         </div>
       }
+      <AddComment 
+        project = {project}
+        setProject = {setProject}
+      />
     </section>
   )
 }

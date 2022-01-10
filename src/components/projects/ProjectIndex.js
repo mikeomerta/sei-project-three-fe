@@ -26,6 +26,7 @@ function ProjectIndex() {
     setKeyword(e.target.value)
   }
 
+  console.log('proj index', projects)
   return (
     <div className='index'>
       <section>
