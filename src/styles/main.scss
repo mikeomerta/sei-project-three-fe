@@ -216,10 +216,11 @@
   }
 }
 
-// Add project page
 
-.edit-project-page {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.219)) , url('./images-dh/edit-bg.jpg');
+//  Add project page
+
+.add-project-page {
+  background-image: url('./images-dh/add-project-bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -227,7 +228,6 @@
   filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
   margin: 10px 50px;
   height: 1500px;
-  color: white;
   @media only screen and (max-width: 600px) {
     margin: 20px 10px;
   }
@@ -348,8 +348,11 @@
       }
   }
 }
-.add-project-page {
-  background-image: url('./images-dh/add-project-bg.jpg');
+
+// Edit project page
+
+.edit-project-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.219)) , url('./images-dh/edit-bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -357,6 +360,7 @@
   filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
   margin: 10px 50px;
   height: 1500px;
+  color: white;
   @media only screen and (max-width: 600px) {
     margin: 20px 10px;
   }
@@ -433,6 +437,21 @@
             color: black;
           }
           .css-14el2xx-placeholder {
+            color: black;
+          }
+          .css-g1d714-ValueContainer {
+            background-color: rgba(0, 0, 0, 0.137);
+            border-radius: 5%;
+            color: black;
+          }
+          .css-6j8wv5-Input {
+            background-color: rgba(0, 0, 0, 0.137);
+            border-radius: 5%;
+            color: black;
+          }
+          .css-26l3qy-menu {
+            background-color: rgba(0, 0, 0, 0.137);
+            border-radius: 5%;
             color: black;
           }
         }
