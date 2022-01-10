@@ -440,7 +440,7 @@ nav {
 //  Add project page
 
 .add-project-page {
-  background-image: url('./images-dh/add-project-bg.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/add-project-bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -479,7 +479,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -496,7 +495,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -549,7 +547,6 @@ nav {
           width: 510px;
           background-color: rgba(0, 0, 0, 0);
           border: none;
-          color: white;
           font-weight: 500;
         }
         .button:hover {
@@ -572,7 +569,7 @@ nav {
 // Edit project page
 
 .edit-project-page {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.219)) , url('./images-dh/edit-bg.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/edit-bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -580,7 +577,6 @@ nav {
   filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
   margin: 10px 50px;
   height: 1500px;
-  color: white;
   @media only screen and (max-width:$tablet) {
     margin: 20px 10px;
   }
@@ -592,7 +588,6 @@ nav {
     height: 100%;
     display: flex;
     justify-content: center;
-    // align-items: center;
     @media only screen and (max-width:$tablet) {
     width: 100%;
     }
@@ -612,7 +607,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -629,7 +623,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -686,7 +679,7 @@ nav {
         border-radius: 5%;
         background-color: rgba(0, 0, 0, 0.425);
         box-shadow: 0px 0px 5px 2px rgba(8, 5, 5, 1);
-        @media only screen and (max-width:$tablet {
+        @media only screen and (max-width:$tablet) {
           width: 270px;
         }
         @media only screen and (max-height: 500px) {
