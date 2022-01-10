@@ -1,100 +1,119 @@
+import { Link, useLocation } from 'react-router-dom'
+import { isAuthenticated } from '../lib/auth'
+import React from 'react'
+// import { getAllProjects } from '../lib/api'
+// import Error from '../common/Error'
+// import Loading from '../common/Loading'
+
 
 function Home() {
+  // const [projects, setProjects] = React.useState([])
+  // const [isError, setIsError] = React.useState(false)
+  // const isLoading = !projects && !isError
+
+  const isAuth = isAuthenticated()
+  useLocation()
+
+  // React.useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const res = await getAllProjects()
+  //       setProjects(res.data)
+  //     } catch (err) {
+  //       setIsError(true)
+  //     }
+  //   }
+  //   getData()
+  // }, [])
+
   return (
-    <div>
-      <header className="header">
-        <div className="menu">
-          logo here
-        </div>
-        <div className="search-bar">
-            searchbar here
-        </div>
-        <button className="favourites">
-          favourites here
-        </button>
-        <button className="sign-up">
-          sign up
-        </button>
-        <button className="login">
-          login
-        </button>
-        <br />
-        <nav className="catergories">
-          <ul>
-            <button><a href="#catergory-link">Content Catergory 1</a></button>
-            <button><a href="#catergory-link">Content Catergory 2</a></button>
-            <button><a href="#catergory-link">Content Catergory 3</a></button>
-            <button><a href="#catergory-link">Content Catergory 4</a></button>
-          </ul>
-        </nav>
-      </header>
-      
-      <br />
-
-      <main>
-        <div className="hero-hp">
-          <div>
-          
-            <h2>BUY. SELL.
-  DISCOVER UNIQUE WEBSITES.
-            </h2>
-            <h3>
-    designer. Preloved. Vintage. Streetwear. Sneakers. Whatever your style. Find it on Eepop.
-            </h3>
+    <>
+      <div className='home'>
+        <section>
+          <div className='secondary-nav'>
+            <Link to="/projects">Latest</Link>
+            <Link to="/projects">For You</Link>
+            <Link to="/projects">Archive</Link>
+            <Link to="/projects">Catagories</Link>
           </div>
-        </div>
-
-        <br />
-
-        <div className='recently-added-hp'>
-          <div className='hp-subtitle'> Recently Added Projects</div>
-          <div className='recently-added-hp-cards'>
-            <ul>
-              <li><a href="recent-hp-cards">latest project</a></li>
-              <li><a href="recent-hp-cards">2nd latest project</a></li>
-              <li><a href="recent-hp-cards">3nd latest project</a></li>
-            </ul>
+        </section>
+        <section>
+          <div className='hero'>
+            <img className='hero-image'/>
+            <h1>Create. Share. Discover.</h1>
+            <p className='hero-para'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
-        </div>
-
-        <br />
-
-        <div className='about-eepop'>
-          <div className='hp-subtitle'> About Eepop</div>
-          <div className='hp-text'>
-            <h4>
-              Eepop is a place where web developers can share ideas, bacon ipsum dolor amet t-bone jerky bresaola, landjaeger tongue sausage andouille rump porchetta pork spare ribs turkey chicken ball tip. Ground round beef ribs buffalo bresaola cow pastrami shoulder pork loin tongue. Short loin jowl filet mignon turkey. Bresaola ribeye brisket jowl, pork loin shankle kielbasa turducken short ribs buffalo porchetta.
-            </h4>
-            <button className='sign-up'>
-              Get Started (register link)
-            </button>
+        </section>
+        <section>
+          <div className='projects-we-love-title'>
+            <h3 id='projects-we-love-title'>Projects we love</h3>
           </div>
-        </div>
-
-        <br />
-
-        <div className='about-us'>
-          <div className='hp-subtitle'> About Us</div>
-          <div className='hp-text'>
-            <h4>
-              This is the 3rd project on general assemble Software engineering course. Bacon ipsum dolor amet t-bone jerky bresaola, landjaeger tongue sausage andouille rump porchetta pork spare ribs turkey chicken ball tip. Ground round beef ribs buffalo bresaola cow pastrami shoulder pork loin tongue. Short loin jowl filet mignon turkey. Bresaola ribeye brisket jowl, pork loin shankle kielbasa turducken short ribs buffalo porchetta.
-            </h4>
+          <div className='projects-we-love'>
+            {/* {projects.map(project => (
+              <div key={project._id}>
+                <Link to={`/projects/${project._id}`}>
+                  <img 
+                    src={project.primaryImage}
+                    alt={project.projectTitle}
+                  />
+                  <h3>{project.projectTitle}</h3>
+                  <p>{project.primaryDescription}</p>
+                  <p>Created By: {project.addedBy.username}</p>
+                  <p>Date Created: {project.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
+                </Link>
+              </div>
+            ))} */}
           </div>
-        </div>
-      </main>
-
-      <br />
-
-      <footer>
-        <div className='footer-links'>
-          <ul>
-            <button><a href="footer-button">About</a></button>
-            <button><a href="footer-link">Privacy</a></button>
-            <button><a href="footer-link">Social Media Links</a></button>
-          </ul>
-        </div>
-      </footer>
-    </div>
+        </section>
+        <section>
+          <div className='home-section'>
+            <div>
+              <h3>What is Epop</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <Link to="/register"><button className='home-button'>Get Started</button></Link>
+            </div>
+            <div>
+              <img className='home-img' src='https://images1.the-dots.com/4707805/that-kind-better-off-alone-copy.jpg?p=projectImageFullJpg' />
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className='home-section'>
+            <div>
+              <img className='home-img' src='https://images1.the-dots.com/4604811/hat-illustration.jpg?p=projectImageFullJpg' />
+            </div>
+            <div>
+              <h3>Find inspiration</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <Link to="/projects"><button className='home-button'>Explore</button></Link>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className='home-section'>
+            <div>
+              <h3>Create your way</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              {isAuth ? (
+                <>
+                  <Link to="/projects/create"><button className='home-button'>Add projects</button></Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login"><button className='home-button'>Add projects</button></Link>
+                </>
+              )}
+            </div>
+            <div>
+              <img className='home-img' src='https://i.imgur.com/YZa7eLX.png' />
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Be part of the community transforming the creative industries one project at a time.</h2>
+        </section>
+      </div>
+    </>
   )
 }
 

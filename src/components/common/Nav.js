@@ -13,20 +13,31 @@ function Nav() {
 
   return (
     <nav>
-      <Link to="/"> Home </Link>
-      <Link to="/projects"> Show All </Link>
-      <Link to="/projects/:projectId"> Show One  </Link>
-      {isAuth ? (
-        <>
-          <Link to="/projects/create">Add Project</Link>
-          <button onClick={handleLogout}>Log Out</button>
-        </>
-      ) : (
-        <>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Log in</Link>
-        </>
-      )}
+      <div className='primary-nav'>
+        <div>
+          <Link to="/"><img 
+            src='https://i.imgur.com/yM71o7j.png' 
+            alt='logo'
+            id='logo'
+          /></Link>
+        </div>
+        <div className='nav-right'>
+          {isAuth ? (
+            <>
+              <Link to="/projects/create">Add Project</Link>
+              <button 
+                onClick={handleLogout}
+                className='logout-button'>
+                  Log Out</button>
+            </>
+          ) : (
+            <>
+              <Link to="/register"><button className='nav-button'>Sign up</button></Link>
+              <Link to="/login">Login</Link>
+            </>
+          )}
+        </div>
+      </div>
     </nav>
   )
 }
