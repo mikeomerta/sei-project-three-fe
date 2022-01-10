@@ -1,5 +1,32 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { getAllProjects } from '../lib/api'
+import Error from '../common/Error'
+import Loading from '../common/Loading'
+
 
 function Home() {
+  const [projects, setProjects] = React.useState([])
+  const [keyword, setKeyword] = React.useState('')
+  const [isError, setIsError] = React.useState(false)
+  const isLoading = !projects && !isError
+
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await getAllProjects()
+        setProjects(res.data)
+      } catch (err) {
+        setIsError(true)
+      }
+    }
+    getData()
+  }, [])
+
+  // const handleSearch = (e) => {
+  //   setKeyword(e.target.value)
+  // }
+
   return (
     <div>
       <header className="header">
@@ -48,13 +75,35 @@ function Home() {
 
         <div className='recently-added-hp'>
           <div className='hp-subtitle'> Recently Added Projects</div>
-          <div className='recently-added-hp-cards'>
-            <ul>
-              <li><a href="recent-hp-cards">latest project</a></li>
-              <li><a href="recent-hp-cards">2nd latest project</a></li>
-              <li><a href="recent-hp-cards">3nd latest project</a></li>
-            </ul>
-          </div>
+          <section>
+            {isLoading && <Loading />}
+            {isError && <Error />}
+            {projects &&
+        <div className='index-projects'>
+          {projects.filter(project => {
+            if (keyword === '') {
+              return project
+            } else if (project.projectTitle.toLowerCase().includes(keyword.toLowerCase())) {
+              return project
+            }
+          }).map(project => (
+            <div key={project._id} className='index-projects-indivdual'>
+              <Link to={`/projects/${project._id}`}>
+                <img 
+                  src={project.primaryImage}
+                  alt={project.projectTitle}
+                  className='index-projects-indivdual-elements'
+                />
+                <h3 className='index-projects-indivdual-elements'>{project.projectTitle}</h3>
+                <p className='index-projects-indivdual-elements'>{project.primaryDescription}</p>
+                <p className='user-and-time'>Created By: {project.addedBy.username}</p>
+                <p className='user-and-time'>Date Created: {project.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
+            }
+          </section>
         </div>
 
         <br />
