@@ -327,10 +327,7 @@ nav {
   }
 }
 
-
-
-
-// Log in and Registration pages
+// * Log in and Registration pages
 
 .form-page {
   background-image: url('./images-dh/form-background.jpg');
@@ -359,6 +356,7 @@ nav {
       display: none;
     }
   }
+
   .form-right {
     width: 50%;
     height: 90%;
@@ -375,6 +373,7 @@ nav {
       text-align: center;
       width: 100%;
     }
+
     .form {
       .form-field {
         margin: 20px;
@@ -397,7 +396,7 @@ nav {
             color: black;
           }
         }
-      }
+      }      
       .button-div {
         display: flex;
         justify-content: center;
@@ -437,7 +436,7 @@ nav {
 }
 
 
-//  Add project page
+//  * Add project page
 
 .add-project-page {
   background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/add-project-bg.jpg');
@@ -566,7 +565,7 @@ nav {
   }
 }
 
-// Edit project page
+// * Edit project page
 
 .edit-project-page {
   background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/edit-bg.jpg');
@@ -716,3 +715,17 @@ nav {
   color: $primarygray;
   font-family: 'Noto Sans', sans-serif;
 }
+
+// * Error Page
+
+.error-image-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.error-image {
+  border-radius: 10px;
+  box-shadow: black 3px 3px;
+}
+

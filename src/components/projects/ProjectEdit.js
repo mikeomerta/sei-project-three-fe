@@ -35,10 +35,16 @@ function ProjectEdit() {
   }, [projectId])
 
   const categoryTags = [
-    { value: 'art', label: 'art' },
-    { value: 'health', label: 'health' },
-    { value: 'music', label: 'music' },
-    { value: 'gaming', label: 'gaming' }
+    { value: 'Advertising', label: 'Advertising' },
+    { value: 'Animation', label: 'Animation' },
+    { value: 'Art', label: 'Art' },
+    { value: 'Gaming', label: 'Gaming' },
+    { value: 'Graphic Design', label: 'Graphic Design' },
+    { value: 'Health', label: 'Health' },
+    { value: 'Illustration', label: 'Illustration' },
+    { value: 'Music', label: 'Music' },
+    { value: 'Photography', label: 'Photography' },
+    { value: 'Writing', label: 'Writing' }
   ]
 
   const handleTextInputChange = (e) => {
@@ -75,8 +81,7 @@ function ProjectEdit() {
     e.preventDefault()
 
     try {
-      console.log(projectId)
-      const res = await axios.put(`/api/projects/${projectId}`, formData, headers() )
+      const res = await axios.put(`/api/projects/${projectId}`, formData, headers())
       console.log('RES', res.data.message)
       navigate(`/projects/${projectId}`)
     } catch (err) {

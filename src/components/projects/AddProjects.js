@@ -22,10 +22,16 @@ function AddProject() {
   const [formErrors, setFormErrors] = React.useState(intialState)
 
   const categoryTags = [
-    { value: 'art', label: 'art' },
-    { value: 'health', label: 'health' },
-    { value: 'music', label: 'music' },
-    { value: 'gaming', label: 'gaming' }
+    { value: 'Advertising', label: 'Advertising' },
+    { value: 'Animation', label: 'Animation' },
+    { value: 'Art', label: 'Art' },
+    { value: 'Gaming', label: 'Gaming' },
+    { value: 'Graphic Design', label: 'Graphic Design' },
+    { value: 'Health', label: 'Health' },
+    { value: 'Illustration', label: 'Illustration' },
+    { value: 'Music', label: 'Music' },
+    { value: 'Photography', label: 'Photography' },
+    { value: 'Writing', label: 'Writing' }
   ]
 
   const handleTextInputChange = (e) => {
@@ -49,7 +55,7 @@ function AddProject() {
     data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
     setIsUploadingImage(true)
     const res = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, data)
-    setFormData({ ...formData, primaryImage: res.data.url })
+    setFormData({ ...formData, primaryImage: res.data.url })    
     setIsUploadingImage(false)
   }
 
