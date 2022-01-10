@@ -338,11 +338,13 @@ nav {
   background-size: cover;
   background-repeat: none;
   border-radius: 10%;
+  display: flex;
+  align-items: center;
   filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
   margin: 100px 50px;
   height: 70vh;
   display: flex;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width:$tablet) {
     margin: 20px 10px;
   }
   @media only screen and (max-height: 500px) {
@@ -350,7 +352,7 @@ nav {
   }
   .form-left {
     width: 50%;
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width:$tablet) {
     display: none;
     }
     @media only screen and (max-height: 500px) {
@@ -359,10 +361,14 @@ nav {
   }
   .form-right {
     width: 50%;
+    height: 90%;
+    margin-right: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    @media only screen and (max-width: 600px) {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12%;
+    @media only screen and (max-width:$tablet) {
     width: 100%;
     }
     @media only screen and (max-height: 500px) {
@@ -372,7 +378,7 @@ nav {
     .form {
       .form-field {
         margin: 20px;
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width:$tablet) {
           text-align: center;
         }
         .input {
@@ -382,9 +388,8 @@ nav {
           width: 500px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width:$tablet) {
             width: 250px;
           }
           @media only screen and (max-height: 500px) {
@@ -403,7 +408,7 @@ nav {
         border-radius: 5%;
         background-color: rgba(0, 0, 0, 0.425);
         box-shadow: 0px 0px 5px 2px rgba(8, 5, 5, 1);
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width:$tablet) {
           width: 270px;
         }
         .button {
@@ -426,7 +431,6 @@ nav {
       .opposite-text {
         text-align: center;
         margin: 0 20px;
-        color: whitesmoke;
       }
     }
   }
@@ -444,7 +448,7 @@ nav {
   filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
   margin: 10px 50px;
   height: 1500px;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width:$tablet) {
     margin: 20px 10px;
   }
   @media only screen and (max-height: 500px) {
@@ -456,7 +460,7 @@ nav {
     display: flex;
     justify-content: center;
     // align-items: center;
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width:$tablet) {
     width: 100%;
     }
     @media only screen and (max-height: 500px) {
@@ -465,7 +469,7 @@ nav {
     }
       .form-field {
         margin: 20px;
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width:$tablet) {
           text-align: center;
         }
         .input {
@@ -477,7 +481,7 @@ nav {
           border-radius: 5%;
           color: white;
           font-style: italic;
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width:$tablet) {
             width: 250px;
           }
           @media only screen and (max-height: 500px) {
@@ -494,7 +498,7 @@ nav {
           border-radius: 5%;
           color: white;
           font-style: italic;
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width:$tablet) {
             width: 250px;
           }
           @media only screen and (max-height: 500px) {
@@ -511,7 +515,7 @@ nav {
           border-radius: 5%;
           color: black;
           font-style: italic;
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width:$tablet) {
             width: 270px;
           }
           @media only screen and (max-height: 500px) {
@@ -534,7 +538,7 @@ nav {
         border-radius: 5%;
         background-color: rgba(0, 0, 0, 0.425);
         box-shadow: 0px 0px 5px 2px rgba(8, 5, 5, 1);
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width:$tablet) {
           width: 270px;
         }
         @media only screen and (max-height: 500px) {
@@ -577,7 +581,7 @@ nav {
   margin: 10px 50px;
   height: 1500px;
   color: white;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width:$tablet) {
     margin: 20px 10px;
   }
   @media only screen and (max-height: 500px) {
@@ -589,7 +593,7 @@ nav {
     display: flex;
     justify-content: center;
     // align-items: center;
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width:$tablet) {
     width: 100%;
     }
     @media only screen and (max-height: 500px) {
@@ -598,7 +602,7 @@ nav {
     }
       .form-field {
         margin: 20px;
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width:$tablet) {
           text-align: center;
         }
         .input {
@@ -610,7 +614,7 @@ nav {
           border-radius: 5%;
           color: white;
           font-style: italic;
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width:$tablet) {
             width: 250px;
           }
           @media only screen and (max-height: 500px) {
@@ -627,7 +631,7 @@ nav {
           border-radius: 5%;
           color: white;
           font-style: italic;
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width:$tablet) {
             width: 250px;
           }
           @media only screen and (max-height: 500px) {
@@ -644,7 +648,7 @@ nav {
           border-radius: 5%;
           color: black;
           font-style: italic;
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width:$tablet) {
             width: 270px;
           }
           @media only screen and (max-height: 500px) {
@@ -682,7 +686,7 @@ nav {
         border-radius: 5%;
         background-color: rgba(0, 0, 0, 0.425);
         box-shadow: 0px 0px 5px 2px rgba(8, 5, 5, 1);
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width:$tablet {
           width: 270px;
         }
         @media only screen and (max-height: 500px) {
