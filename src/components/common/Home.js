@@ -39,7 +39,6 @@ function Home() {
         </section>
         <section>
           <div className='hero'>
-            <img className='hero-image'/>
             <h1>Create. Share. Discover.</h1>
             <p className='hero-para'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>

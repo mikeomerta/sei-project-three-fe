@@ -7,6 +7,7 @@ import ProjectShow from './components/projects/ProjectShow'
 import ProjectIndex from './components/projects/ProjectIndex'
 import AddProject from './components/projects/AddProjects'
 import ProjectEdit from './components/projects/ProjectEdit'
+import Favourites from './components/projects/Favourites'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path = "/" element = {<Home />} />
         <Route path = '/register' element = {<Register />} />
         <Route path = '/login' element = {<Login />} />
+        <Route path = "/favourites" element = {<Favourites />} />
         <Route path = "/projects" element = {<ProjectIndex />} />
         <Route path = "/projects/:projectId" element = {<ProjectShow />} />   
         <Route path = "/projects/create" element = {<AddProject />} />

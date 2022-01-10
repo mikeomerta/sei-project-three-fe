@@ -13,6 +13,7 @@ function ProjectShow() {
   const [project, setProject] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
   const isLoading = !project && !isError
+  const [isFavourite, setIsFavourite] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -26,8 +27,6 @@ function ProjectShow() {
     getData()
   }, [projectId])
 
-  console.log(project)
-
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
@@ -38,6 +37,20 @@ function ProjectShow() {
       }
     }
   }
+
+  const handleFavourites = () => {
+    // project.favourite = true
+    setIsFavourite(true)
+    // console.log(project.favourite)
+  }
+
+  const handleRemoveFavourite = () => {
+    // project.favourite = false
+    setIsFavourite(false)
+    // console.log(project.favourite)
+  }
+
+  console.log(isFavourite)
 
   return (
     <section>
@@ -57,12 +70,19 @@ function ProjectShow() {
             <p className='user-show'>Date Created: {project.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
             <div className='buttons'>
               {!isOwner(project.addedBy._id) ? ( 
-                <button className='favourites'>
+                <button 
+                  className='favourites'
+                  onClick={!isFavourite ? (handleFavourites) : (handleRemoveFavourite)}
+                >
                   <img 
                     src='https://i.imgur.com/hN82Ce2.png'
                     className='show-icons' 
                   />
-                  <p>Add To Favourites</p>
+                  {isFavourite ? (
+                    <p>Remove from Favourites</p> 
+                  ) : (
+                    <p>Add To Favourites</p>
+                  )}
                 </button>
               ) : (
                 <>

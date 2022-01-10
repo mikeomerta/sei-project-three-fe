@@ -24,6 +24,12 @@ function Nav() {
         <div className='nav-right'>
           {isAuth ? (
             <>
+              <Link to="/favourites" id='favourites'>
+                <img 
+                  src='https://i.imgur.com/hN82Ce2.png' 
+                  className='heart-nav'
+                />
+              </Link>
               <Link to="/projects/create">Add Project</Link>
               <button 
                 onClick={handleLogout}
