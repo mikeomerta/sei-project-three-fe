@@ -121,28 +121,24 @@ function ProjectEdit() {
               {primaryCharacterCount === 250 && <p>Too many characters</p>}
               {formErrors.primaryDescription && <p>Primary Description is a required field</p>}
             </div>
-            {isUploadingImage && <p>Image uploading</p>}
-            {formData.primaryImage ?
+            {isUploadingImage && <p>Image uploading</p>}            
+            <div>
+              <img src={formData.primaryImage} alt="uploaded primary image"/>
+            </div>              
+            <div className="form-field">
+              <label htmlFor="primaryImage">Primary Image *</label>
               <div>
-                <img src={formData.primaryImage} alt="uploaded primary image"/>
+                <input 
+                  type="file"
+                  name="primaryImage"
+                  id="primaryImage"
+                  accept="image/png, image/jpeg"
+                  placeholder="Primary Image"
+                  onChange={handlePrimaryImageUpload}
+                />
               </div>
-              :
-              <div className="form-field">
-                <label htmlFor="primaryImage">Primary Image *</label>
-                <div>
-                  <input 
-                    type="file"
-                    name="primaryImage"
-                    id="primaryImage"
-                    accept="image/png, image/jpeg"
-                    placeholder="Primary Image"
-                    onChange={handlePrimaryImageUpload}
-                    value={formData.primaryImage}
-                  />
-                </div>
-                {formErrors.primaryImage && <p>Primary Image is a required field</p>}
-              </div>
-            }          
+              {formErrors.primaryImage && <p>Primary Image is a required field</p>}
+            </div>                     
             <div className="form-field">
               <label htmlFor="secondaryDescription">Secondary Description {secondaryCharacterCount}/1000</label>
               <div>
@@ -158,26 +154,25 @@ function ProjectEdit() {
               </div>
               {secondaryCharacterCount === 1000 && <p>Too many characters</p>}
             </div>
-            {formData.secondaryImage.length !== 0 ?
+            {isUploadingImage && <p>Image uploading</p>}
+            {formData.secondaryImage.length !== 0 &&
+            <div>
+              <img src={formData.secondaryImage} alt="uploaded secondary image"/>
+            </div>
+            }
+            <div className="form-field">
+              <label htmlFor="secondaryImages">Secondary Images</label>
               <div>
-                <img src={formData.secondaryImage} alt="uploaded secondary image"/>
+                <input 
+                  type="file"
+                  name="secondaryImages"
+                  id="secondaryImages"
+                  accept="image/png, image/jpeg"
+                  placeholder="Secondary Images"
+                  onChange={handleSecondaryImageUpload}
+                />
               </div>
-              :
-              <div className="form-field">
-                <label htmlFor="secondaryImages">Secondary Images</label>
-                <div>
-                  <input 
-                    type="file"
-                    name="secondaryImages"
-                    id="secondaryImages"
-                    accept="image/png, image/jpeg"
-                    placeholder="Secondary Images"
-                    onChange={handleSecondaryImageUpload}
-                    value={formData.secondaryImage}
-                  />
-                </div>
-              </div>
-            }  
+            </div>              
             <div className="form-field">
               <label htmlFor="categoryTag">Category Tag</label>
               <Select 
