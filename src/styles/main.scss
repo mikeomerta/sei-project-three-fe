@@ -13,6 +13,15 @@ nav {
   }
 }
 
+.heart-nav {
+  width: 20px;
+  margin: 0px 15px;
+}
+
+#favourites {
+  padding: 10px 0px 0px;
+}
+
 #logo {
   width: 90px;
   margin: 0px 0px 0px 10px;
@@ -25,8 +34,10 @@ nav {
 }
 
 .nav-right {
-  margin: 7px 10px 0px 0px;
+  margin: 0px 10px 10px 0px;
   font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-button {
@@ -72,7 +83,9 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(157, 130, 255);
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSayW06hxaJH8n1OXe9G4auGB4u5qMFEOoqPDwzB8e4sbptUlFGldzlV8jZMG7Bo3FQto&usqp=CAU');
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 480px;
   @media screen and (max-width:$tablet) {
     height: 300px;
@@ -327,10 +340,7 @@ nav {
   }
 }
 
-
-
-
-// Log in and Registration pages
+// * Log in and Registration pages
 
 .form-page {
   background-image: url('./images-dh/form-background.jpg');
@@ -359,6 +369,7 @@ nav {
       display: none;
     }
   }
+
   .form-right {
     width: 50%;
     height: 90%;
@@ -375,6 +386,7 @@ nav {
       text-align: center;
       width: 100%;
     }
+
     .form {
       .form-field {
         margin: 20px;
@@ -397,7 +409,7 @@ nav {
             color: black;
           }
         }
-      }
+      }      
       .button-div {
         display: flex;
         justify-content: center;
@@ -437,7 +449,7 @@ nav {
 }
 
 
-//  Add project page
+//  * Add project page
 
 .add-project-page {
   background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/add-project-bg.jpg');
@@ -566,7 +578,7 @@ nav {
   }
 }
 
-// Edit project page
+// * Edit project page
 
 .edit-project-page {
   background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/edit-bg.jpg');
@@ -716,3 +728,17 @@ nav {
   color: $primarygray;
   font-family: 'Noto Sans', sans-serif;
 }
+
+// * Error Page
+
+.error-image-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.error-image {
+  border-radius: 10px;
+  box-shadow: black 3px 3px;
+}
+
