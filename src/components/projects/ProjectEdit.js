@@ -106,7 +106,7 @@ function ProjectEdit() {
               {formErrors.projectTitle && <p>Project Title is a required field</p>}
             </div>
             <div className="form-field">
-              <label htmlFor="primaryDescription">Primary Description *</label>
+              <label htmlFor="primaryDescription">Primary Description* {primaryCharacterCount}/250</label>
               <div>
                 <textarea 
                   className='input-text-area'
@@ -114,6 +114,7 @@ function ProjectEdit() {
                   id="primaryDescription"
                   placeholder="Primary Description"
                   onChange={handleTextInputChange}
+                  onChangeCapture={(e) => setPrimaryCharacterCount(e.target.value.length)}
                   value={formData.primaryDescription}
                 />
               </div>
@@ -143,7 +144,7 @@ function ProjectEdit() {
               </div>
             }          
             <div className="form-field">
-              <label htmlFor="secondaryDescription">Secondary Description</label>
+              <label htmlFor="secondaryDescription">Secondary Description {secondaryCharacterCount}/1000</label>
               <div>
                 <textarea 
                   className='input-text-area'
@@ -151,6 +152,7 @@ function ProjectEdit() {
                   id="secondaryDescription"
                   placeholder="Secondary Description"
                   onChange={handleTextInputChange}
+                  onChangeCapture={(e) => setSecondaryCharacterCount(e.target.value.length)}
                   value={formData.secondaryDescription}
                 />
               </div>
