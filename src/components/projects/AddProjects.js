@@ -22,10 +22,16 @@ function AddProject() {
   const [formErrors, setFormErrors] = React.useState(intialState)
 
   const categoryTags = [
-    { value: 'art', label: 'art' },
-    { value: 'health', label: 'health' },
-    { value: 'music', label: 'music' },
-    { value: 'gaming', label: 'gaming' }
+    { value: 'Advertising', label: 'Advertising' },
+    { value: 'Animation', label: 'Animation' },
+    { value: 'Art', label: 'Art' },
+    { value: 'Gaming', label: 'Gaming' },
+    { value: 'Graphic Design', label: 'Graphic Design' },
+    { value: 'Health', label: 'Health' },
+    { value: 'Illustration', label: 'Illustration' },
+    { value: 'Music', label: 'Music' },
+    { value: 'Photography', label: 'Photography' },
+    { value: 'Writing', label: 'Writing' }
   ]
 
   const handleTextInputChange = (e) => {
@@ -38,13 +44,18 @@ function AddProject() {
     setFormData({ ...formData, categoryTag: selectedItems })
   }
 
+  let primaryCharacterCountLimit = false
+  if (primaryCharacterCount > 50) {
+    primaryCharacterCountLimit = true
+  }
+
   const handlePrimaryImageUpload = async (e) => {
     const data = new FormData()
     data.append('file', e.target.files[0])
     data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
     setIsUploadingImage(true)
     const res = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, data)
-    setFormData({ ...formData, primaryImage: res.data.url })
+    setFormData({ ...formData, primaryImage: res.data.url })    
     setIsUploadingImage(false)
   }
 
@@ -101,7 +112,7 @@ function AddProject() {
                   onChangeCapture={(e) => setPrimaryCharacterCount(e.target.value.length)}
                 />
               </div>
-              {primaryCharacterCount === 250 && <p>Too many characters</p>}
+              {primaryCharacterCountLimit ? <p>Too many characters</p> : ''}
               {formErrors.primaryDescription && <p>Primary Description is a required field</p>}
             </div>
             {isUploadingImage && <p>Image uploading</p>}
@@ -138,26 +149,26 @@ function AddProject() {
                 />
               </div>
               {secondaryCharacterCount === 1000 && <p>Too many characters</p>}
+            </div>  
+            {isUploadingImage && <p>Image uploading</p>}          
+            {formData.secondaryImage.length !== 0 &&
+            <div>
+              <img src={formData.secondaryImage} alt="uploaded secondary image"/>
             </div>
-            {formData.secondaryImage.length !== 0 ?
+            }
+            <div className="form-field">
+              <label htmlFor="secondaryImages">Secondary Images</label>
               <div>
-                <img src={formData.secondaryImage} alt="uploaded secondary image"/>
+                <input 
+                  type="file"
+                  name="secondaryImages"
+                  id="secondaryImages"
+                  accept="image/png, image/jpeg"
+                  placeholder="Secondary Images"
+                  multi onChange={handleSecondaryImageUpload}
+                />
               </div>
-              :
-              <div className="form-field">
-                <label htmlFor="secondaryImages">Secondary Images</label>
-                <div>
-                  <input 
-                    type="file"
-                    name="secondaryImages"
-                    id="secondaryImages"
-                    accept="image/png, image/jpeg"
-                    placeholder="Secondary Images"
-                    onChange={handleSecondaryImageUpload}
-                  />
-                </div>
-              </div>
-            }  
+            </div>              
             <div className="form-field">
               <label htmlFor="categoryTag">Category Tag</label>
               <Select 

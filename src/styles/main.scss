@@ -340,10 +340,7 @@ nav {
   }
 }
 
-
-
-
-// Log in and Registration pages
+// * Log in and Registration pages
 
 .form-page {
   background-image: url('./images-dh/form-background.jpg');
@@ -372,6 +369,7 @@ nav {
       display: none;
     }
   }
+
   .form-right {
     width: 50%;
     height: 90%;
@@ -388,6 +386,7 @@ nav {
       text-align: center;
       width: 100%;
     }
+
     .form {
       .form-field {
         margin: 20px;
@@ -410,7 +409,7 @@ nav {
             color: black;
           }
         }
-      }
+      }      
       .button-div {
         display: flex;
         justify-content: center;
@@ -450,10 +449,10 @@ nav {
 }
 
 
-//  Add project page
+//  * Add project page
 
 .add-project-page {
-  background-image: url('./images-dh/add-project-bg.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/add-project-bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -492,7 +491,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -509,7 +507,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -562,7 +559,6 @@ nav {
           width: 510px;
           background-color: rgba(0, 0, 0, 0);
           border: none;
-          color: white;
           font-weight: 500;
         }
         .button:hover {
@@ -582,10 +578,10 @@ nav {
   }
 }
 
-// Edit project page
+// * Edit project page
 
 .edit-project-page {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.219)) , url('./images-dh/edit-bg.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.219)) , url('./images-dh/edit-bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -593,7 +589,6 @@ nav {
   filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
   margin: 10px 50px;
   height: 1500px;
-  color: white;
   @media only screen and (max-width:$tablet) {
     margin: 20px 10px;
   }
@@ -605,7 +600,6 @@ nav {
     height: 100%;
     display: flex;
     justify-content: center;
-    // align-items: center;
     @media only screen and (max-width:$tablet) {
     width: 100%;
     }
@@ -625,7 +619,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -642,7 +635,6 @@ nav {
           width: 800px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
-          color: white;
           font-style: italic;
           @media only screen and (max-width:$tablet) {
             width: 250px;
@@ -736,3 +728,17 @@ nav {
   color: $primarygray;
   font-family: 'Noto Sans', sans-serif;
 }
+
+// * Error Page
+
+.error-image-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.error-image {
+  border-radius: 10px;
+  box-shadow: black 3px 3px;
+}
+
