@@ -1,11 +1,12 @@
 
 import React from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { deleteProject, getSingleProject } from '../lib/api'
+import { deleteProject, getSingleProject, headers } from '../lib/api'
 import { isOwner } from '../lib/auth'
 import Error from '../common/Error'
 import Loading from '../common/Loading'
 import AddComment from './AddComment'
+import axios from 'axios'
 
 
 function ProjectShow() {
@@ -42,9 +43,11 @@ function ProjectShow() {
     }
   }
 
-  const handleFavourites = () => {
+  const handleFavourites = async () => {
     // project.favourite = true
     setIsFavourite(true)
+    const res = await axios.post(`/api/projects/${projectId}/favourite`, isFavourite, headers())
+    console.log('RES', res)
     // console.log(project.favourite)
   }
 

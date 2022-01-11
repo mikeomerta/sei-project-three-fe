@@ -26,7 +26,7 @@ function Favourites() {
       <section>
         <div className='index-title'>
           <div>
-            <h1>Favourites</h1>
+            <h1>Your Favourites:</h1>
           </div>
         </div>
       </section>
@@ -36,7 +36,7 @@ function Favourites() {
         {projects &&
         <div className='index-gallery'>
           {projects.filter(project => {
-            console.log(project)
+            return project.favouritedBy.length > 0
           }).map(project => (
             <div key={project._id} className='index-card'>
               <Link to={`/projects/${project._id}`}>

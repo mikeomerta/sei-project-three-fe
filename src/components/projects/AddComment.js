@@ -12,12 +12,6 @@ function AddComment ({ project, setProject }) {
 
   const { projectId } = useParams()
 
-  
-  if (project) {
-    console.log('PRO', project.comments[0])
-    console.log(projectId)
-  }
-  
 
   if (refresh) {
     setRefresh(false)
@@ -39,7 +33,7 @@ function AddComment ({ project, setProject }) {
     }
   }
 
-  console.log('comment', commentText)
+
   return (
     <section>
       <div>

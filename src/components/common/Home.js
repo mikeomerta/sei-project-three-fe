@@ -1,30 +1,30 @@
 import { Link, useLocation } from 'react-router-dom'
 import { isAuthenticated } from '../lib/auth'
 import React from 'react'
-// import { getAllProjects } from '../lib/api'
-// import Error from '../common/Error'
-// import Loading from '../common/Loading'
+import { getAllProjects } from '../lib/api'
+import Error from '../common/Error'
+import Loading from '../common/Loading'
 
 
 function Home() {
-  // const [projects, setProjects] = React.useState([])
-  // const [isError, setIsError] = React.useState(false)
-  // const isLoading = !projects && !isError
+  const [projects, setProjects] = React.useState([])
+  const [isError, setIsError] = React.useState(false)
+  const isLoading = !projects && !isError
 
   const isAuth = isAuthenticated()
   useLocation()
 
-  // React.useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const res = await getAllProjects()
-  //       setProjects(res.data)
-  //     } catch (err) {
-  //       setIsError(true)
-  //     }
-  //   }
-  //   getData()
-  // }, [])
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await getAllProjects()
+        setProjects(res.data)
+      } catch (err) {
+        setIsError(true)
+      }
+    }
+    getData()
+  }, [])
 
   return (
     <>
@@ -48,20 +48,25 @@ function Home() {
             <h3 id='projects-we-love-title'>Projects we love</h3>
           </div>
           <div className='projects-we-love'>
-            {/* {projects.map(project => (
-              <div key={project._id}>
+            {isError && <Error />}
+            {isLoading && <Loading />}
+            {projects && projects.filter(item => {
+              if (item.loved) {
+                return item
+              }
+            }
+            ).map(project => (
+              <div key={project._id}
+              >
                 <Link to={`/projects/${project._id}`}>
                   <img 
                     src={project.primaryImage}
                     alt={project.projectTitle}
                   />
                   <h3>{project.projectTitle}</h3>
-                  <p>{project.primaryDescription}</p>
-                  <p>Created By: {project.addedBy.username}</p>
-                  <p>Date Created: {project.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
                 </Link>
               </div>
-            ))} */}
+            ))}
           </div>
         </section>
         <section>
