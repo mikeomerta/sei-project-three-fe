@@ -12,9 +12,9 @@ function AddComment ({ project, setProject }) {
 
   const { projectId } = useParams()
 
-  console.log('re', refresh)
+  
   if (project) {
-    console.log('PRO', project)
+    console.log('PRO', project.comments[0])
     console.log(projectId)
   }
   
@@ -64,9 +64,10 @@ function AddComment ({ project, setProject }) {
       </div>
       <div>
         {project ? (project.comments.map(data => (
-          <div key={data._id}>
-            <h3>{data.text}</h3>
-            <p>{data.addedBy}</p>
+          <div key={data._id} className='index-info'>
+            <p className='gallery-title'>{data.text}</p>
+            <p className='user'>Comment by: {data.addedBy.username}</p>
+            <p className='user'>Date created: {data.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
           </div>
         )).reverse())
           :
