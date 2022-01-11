@@ -448,7 +448,6 @@ nav {
   }
 }
 
-
 //  * Add project page
 
 .add-project-page {
@@ -456,7 +455,7 @@ nav {
   background-position: center;
   background-size: cover;
   background-repeat: none;
-  border-radius: 10%;
+  border-radius: 5%;
   filter: drop-shadow(0 0 0.2rem rgb(0, 0, 0));
   margin: 10px 50px;
   height: 1500px;
@@ -740,5 +739,27 @@ nav {
 .error-image {
   border-radius: 10px;
   box-shadow: black 3px 3px;
+}
+
+// * Image Resizing
+
+.primary-image-container {
+display: flex;
+justify-content: center;
+}
+
+.primary-image {
+  border-radius: 5px; 
+  width: 200px;
+}
+
+.secondary-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.secondary-image {
+  border-radius: 5px; 
+  width: 200px;
 }
 

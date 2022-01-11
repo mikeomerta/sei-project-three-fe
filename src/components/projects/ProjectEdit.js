@@ -57,6 +57,16 @@ function ProjectEdit() {
     setFormData({ ...formData, categoryTag: selectedItems })    
   }
 
+  let primaryCharacterCountLimit = false
+  if (primaryCharacterCount > 250) {
+    primaryCharacterCountLimit = true
+  }
+
+  let secondaryCharacterCountLimit = false
+  if (primaryCharacterCount > 1000) {
+    secondaryCharacterCountLimit = true
+  }
+
   const handlePrimaryImageUpload = async (e) => {
     const data = new FormData()
     data.append('file', e.target.files[0])
@@ -123,12 +133,12 @@ function ProjectEdit() {
                   value={formData.primaryDescription}
                 />
               </div>
-              {primaryCharacterCount === 250 && <p>Too many characters</p>}
+              {primaryCharacterCountLimit ? <p>Too many characters</p> : ''}
               {formErrors.primaryDescription && <p>Primary Description is a required field</p>}
             </div>
             {isUploadingImage && <p>Image uploading</p>}            
-            <div>
-              <img src={formData.primaryImage} alt="uploaded primary image"/>
+            <div className="primary-image-container">
+              <img className="primary-image" src={formData.primaryImage} alt="uploaded primary image"/>
             </div>              
             <div className="form-field">
               <label htmlFor="primaryImage">Primary Image *</label>
@@ -157,12 +167,12 @@ function ProjectEdit() {
                   value={formData.secondaryDescription}
                 />
               </div>
-              {secondaryCharacterCount === 1000 && <p>Too many characters</p>}
+              {secondaryCharacterCountLimit ? <p>Too many characters</p> : ''}
             </div>
             {isUploadingImage && <p>Image uploading</p>}
             {formData.secondaryImage.length !== 0 &&
-            <div>
-              <img src={formData.secondaryImage} alt="uploaded secondary image"/>
+            <div className="secondary-image-container">
+              <img className="secondary-image" src={formData.secondaryImage} alt="uploaded secondary image"/>
             </div>
             }
             <div className="form-field">
@@ -186,7 +196,7 @@ function ProjectEdit() {
                 isMulti
                 options={categoryTags}
                 onChange={handleSelectInputChange}
-                value={formData.categoryTag}
+                value={''}
               />
             </div>
             <div className="button-div">
