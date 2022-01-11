@@ -81,14 +81,22 @@ function ProjectShow() {
                   className='favourites'
                   onClick={!isFavourite ? (handleFavourites) : (handleRemoveFavourite)}
                 >
-                  <img 
-                    src='https://i.imgur.com/hN82Ce2.png'
-                    className='show-icons' 
-                  />
                   {isFavourite ? (
-                    <p>Remove from Favourites</p> 
+                    <>
+                      <img 
+                        src='https://i.imgur.com/P4CS5VY.png'
+                        className='show-icons' 
+                      />
+                      <p>Remove from Favourites</p> 
+                    </>
                   ) : (
-                    <p>Add To Favourites</p>
+                    <>
+                      <img 
+                        src='https://i.imgur.com/hN82Ce2.png'
+                        className='show-icons' 
+                      />
+                      <p>Add To Favourites</p>
+                    </>
                   )}
                 </button>
               ) : (
@@ -112,19 +120,15 @@ function ProjectShow() {
             <h4>{project.primaryDescription}</h4>
             <p className='description-show'>{project.secondaryDescription}</p>
           </div>
-          {/* <div className='show-primary-image'>
-            <img 
-              src={project.secondaryImage.map(image => {
-                console.log(image)
-              })} 
-              alt={project.projectTitle} />
-          </div> */}
         </div>
       }
-      <AddComment 
-        project = {project}
-        setProject = {setProject}
-      />
+      <div className='comments'>
+        <h1>Comments</h1>
+        <AddComment 
+          project = {project}
+          setProject = {setProject}
+        />
+      </div>
     </section>
   )
 }

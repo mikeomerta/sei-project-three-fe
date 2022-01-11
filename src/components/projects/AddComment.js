@@ -41,10 +41,10 @@ function AddComment ({ project, setProject }) {
           <div>
             <form onSubmit={handleSubmitComment}>
               <div>
-                <label htmlFor="comment-text">Comment text</label>
+                <label htmlFor="comment-text"></label>
                 <textarea id="comment-text"
                   name="comment-text"
-                  placeholder="Comment text"
+                  placeholder="Add a comment..."
                   value={commentText.text}
                   onChange={handleCommentInput}
                 />
@@ -59,9 +59,11 @@ function AddComment ({ project, setProject }) {
       <div>
         {project ? (project.comments.map(data => (
           <div key={data._id} className='index-info'>
-            <p className='gallery-title'>{data.text}</p>
-            <p className='user'>Comment by: {data.addedBy.username}</p>
-            <p className='user'>Date created: {data.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
+            <div className='user-and-time-comments'>
+              <p className='user-comments'>{data.addedBy.username}</p>
+              <p className='date-comments'>{data.createdAt.slice(0, 10).split('-').reverse().join('-')}</p>
+            </div>
+            <p className='gallery-title comment-text'>{data.text}</p>
           </div>
         )).reverse())
           :
