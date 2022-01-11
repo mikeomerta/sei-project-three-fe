@@ -45,8 +45,13 @@ function AddProject() {
   }
 
   let primaryCharacterCountLimit = false
-  if (primaryCharacterCount > 50) {
+  if (primaryCharacterCount > 250) {
     primaryCharacterCountLimit = true
+  }
+
+  let secondaryCharacterCountLimit = false
+  if (primaryCharacterCount > 1000) {
+    secondaryCharacterCountLimit = true
   }
 
   const handlePrimaryImageUpload = async (e) => {
@@ -117,8 +122,8 @@ function AddProject() {
             </div>
             {isUploadingImage && <p>Image uploading</p>}
             {formData.primaryImage ?
-              <div>
-                <img src={formData.primaryImage} alt="uploaded primary image"/>
+              <div className="primary-image-container">
+                <img className="primary-image" src={formData.primaryImage} alt="uploaded primary image"/>
               </div>
               :
               <div className="form-field">
@@ -148,12 +153,12 @@ function AddProject() {
                   onChangeCapture={(e) => setSecondaryCharacterCount(e.target.value.length)}
                 />
               </div>
-              {secondaryCharacterCount === 1000 && <p>Too many characters</p>}
+              {secondaryCharacterCountLimit ? <p>Too many characters</p> : ''}
             </div>  
             {isUploadingImage && <p>Image uploading</p>}          
             {formData.secondaryImage.length !== 0 &&
-            <div>
-              <img src={formData.secondaryImage} alt="uploaded secondary image"/>
+            <div className="secondary-image-container">
+              <img className="secondary-image" src={formData.secondaryImage} alt="uploaded secondary image"/>
             </div>
             }
             <div className="form-field">
@@ -165,7 +170,7 @@ function AddProject() {
                   id="secondaryImages"
                   accept="image/png, image/jpeg"
                   placeholder="Secondary Images"
-                  multi onChange={handleSecondaryImageUpload}
+                  onChange={handleSecondaryImageUpload}
                 />
               </div>
             </div>              
