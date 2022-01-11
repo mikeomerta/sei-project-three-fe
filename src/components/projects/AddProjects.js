@@ -50,7 +50,7 @@ function AddProject() {
   }
 
   let secondaryCharacterCountLimit = false
-  if (primaryCharacterCount > 1000) {
+  if (secondaryCharacterCount > 1000) {
     secondaryCharacterCountLimit = true
   }
 
@@ -109,7 +109,7 @@ function AddProject() {
               <label htmlFor="primaryDescription">Primary Description* <span className="character-count">{primaryCharacterCount}/250</span></label>
               <div>
                 <textarea 
-                  className='input-text-area'
+                  className={primaryCharacterCountLimit ? 'input-text-area-red' : 'input-text-area'}
                   name="primaryDescription"
                   id="primaryDescription"
                   placeholder="Primary Description"
@@ -145,7 +145,7 @@ function AddProject() {
               <label htmlFor="secondaryDescription">Secondary Description <span className="character-count">{secondaryCharacterCount}/1000</span></label>
               <div>
                 <textarea 
-                  className='input-text-area'
+                  className={secondaryCharacterCountLimit ? 'input-text-area-red' : 'input-text-area'}
                   name="secondaryDescription"
                   id="secondaryDescription"
                   placeholder="Secondary Description"
