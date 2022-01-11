@@ -39,8 +39,8 @@ function Home() {
         </section>
         <section>
           <div className='hero'>
-            <h1>Create. Share. Discover.</h1>
-            <p className='hero-para'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h1>Create. Share.<br />Discover Unique <br />Projects.</h1>
+            <p className='hero-para'>Advertising. Animation. Art. Gaming. Graphic Design. Health. Illustration. Music. Photography. Writing. Whatever your style. Find it on Epop.</p>
           </div>
         </section>
         <section>
@@ -68,7 +68,7 @@ function Home() {
           <div className='home-section'>
             <div>
               <h3>What is Epop</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <p>Epop is the creators marketplace where the next generation come to discover unique ideas and projects. With a global community connecting to make web-development more inclusive, diverse and less wasteful. This is what transforming the internet looks like.</p>
               <Link to="/register"><button className='home-button'>Get Started</button></Link>
             </div>
             <div>
@@ -83,7 +83,7 @@ function Home() {
             </div>
             <div>
               <h3>Find inspiration</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <p>Browse the latest creators you know and love. Discover independent brands making waves and the creators behind them. Whatever you are into, find the project and the creator for you on Epop.</p>
               <Link to="/projects"><button className='home-button'>Explore</button></Link>
             </div>
           </div>
@@ -91,8 +91,8 @@ function Home() {
         <section>
           <div className='home-section'>
             <div>
-              <h3>Create your way</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <h3>About Us</h3>
+              <p>This project was created by Beta Than Meta (David.H, Harry.M, Holly.P, Michael.E). Inspired by Depop and The Dots, this project is to showcase the skills we have learnt in designing and building a full stack application. We hope you enjoy it.</p>
               {isAuth ? (
                 <>
                   <Link to="/projects/create"><button className='home-button'>Add projects</button></Link>

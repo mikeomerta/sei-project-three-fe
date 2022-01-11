@@ -2,6 +2,12 @@ $primarygray: #312727;
 $mobile: 600px;
 $tablet: 900px;
 
+// * Main Font
+* {
+  font-family: 'Noto Sans', sans-serif
+}
+
+
 // * NavBar
 
 nav {
@@ -397,7 +403,7 @@ nav {
           margin-top: 10px;
           padding-left: 10px;
           height: 40px;
-          width: 500px;
+          width: 300px;
           background-color: rgba(0, 0, 0, 0.137);
           border-radius: 5%;
           font-style: italic;
@@ -415,7 +421,7 @@ nav {
         justify-content: center;
         align-items: center;
         height: 40px;
-        width: 510px;
+        width: 310px;
         margin: 20px;
         border-radius: 5%;
         background-color: rgba(0, 0, 0, 0.425);
@@ -425,7 +431,7 @@ nav {
         }
         .button {
           height: 40px;
-          width: 510px;
+          width: 310px;
           background-color: rgba(0, 0, 0, 0);
           border: none;
           color: white;
@@ -763,3 +769,15 @@ justify-content: center;
   width: 200px;
 }
 
+// * Error Handling
+
+.error-style {
+  font-family: 'Noto Sans', sans-serif;
+  color: red;
+  font-size: 14px;
+  margin: 10px 10px;
+}
+
+.character-count {
+  font-size: 12px;
+}

@@ -54,7 +54,7 @@ function Registration() {
                   onChange={handleInputChange}
                 />
               </div>
-              {formErrors.username && <p>Username is a required field</p>}
+              {formErrors.username && <p className="error-style">Username is a required field</p>}
             </div>
             <div className="form-field">
               <label htmlFor="email">Email</label>
@@ -67,7 +67,7 @@ function Registration() {
                   onChange={handleInputChange}
                 />
               </div>
-              {formErrors.email && <p>Email is a required field</p>}
+              {formErrors.email && <p className="error-style">Email is a required field</p>}
             </div>
             <div className="form-field">
               <label htmlFor="password">Password</label>
@@ -81,7 +81,7 @@ function Registration() {
                   onChange={handleInputChange}
                 />
               </div>
-              {formErrors.password && <p>Password is a required field</p>}
+              {formErrors.password && <p className="error-style">Password is a required field</p>}
             </div>
             <div className="form-field">
               <label htmlFor="passwordConfirmation">Password Confirmation</label>
@@ -95,7 +95,7 @@ function Registration() {
                   onChange={handleInputChange}
                 />
               </div>
-              {formErrors.passwordConfirmation && <p>Passwords do not match</p>}
+              {formErrors.passwordConfirmation && <p className="error-style">Passwords do not match</p>}
             </div>
             <div className="FIELD">
               <div className='button-div'

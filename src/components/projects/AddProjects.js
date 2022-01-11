@@ -103,10 +103,10 @@ function AddProject() {
                   onChange={handleTextInputChange}
                 />
               </div>
-              {formErrors.projectTitle && <p>Project Title is a required field</p>}
+              {formErrors.projectTitle && <p className="error-style">Project Title is a required field</p>}
             </div>
             <div className="form-field">
-              <label htmlFor="primaryDescription">Primary Description* {primaryCharacterCount}/250</label>
+              <label htmlFor="primaryDescription">Primary Description* <span className="character-count">{primaryCharacterCount}/250</span></label>
               <div>
                 <textarea 
                   className='input-text-area'
@@ -117,8 +117,8 @@ function AddProject() {
                   onChangeCapture={(e) => setPrimaryCharacterCount(e.target.value.length)}
                 />
               </div>
-              {primaryCharacterCountLimit ? <p>Too many characters</p> : ''}
-              {formErrors.primaryDescription && <p>Primary Description is a required field</p>}
+              {primaryCharacterCountLimit ? <p className="error-style">Too many characters</p> : ''}
+              {formErrors.primaryDescription && <p className="error-style">Primary Description is a required field</p>}
             </div>
             {isUploadingImage && <p>Image uploading</p>}
             {formData.primaryImage ?
@@ -127,7 +127,7 @@ function AddProject() {
               </div>
               :
               <div className="form-field">
-                <label htmlFor="primaryImage">Primary Image *</label>
+                <label className="image-button" htmlFor="primaryImage">Primary Image *</label>
                 <div>
                   <input 
                     type="file"
@@ -138,11 +138,11 @@ function AddProject() {
                     onChange={handlePrimaryImageUpload}
                   />
                 </div>
-                {formErrors.primaryImage && <p>Primary Image is a required field</p>}
+                {formErrors.primaryImage && <p className="error-style">Primary Image is a required field</p>}
               </div>
             }          
             <div className="form-field">
-              <label htmlFor="secondaryDescription">Secondary Description {secondaryCharacterCount}/1000</label>
+              <label htmlFor="secondaryDescription">Secondary Description <span className="character-count">{secondaryCharacterCount}/1000</span></label>
               <div>
                 <textarea 
                   className='input-text-area'
@@ -153,7 +153,7 @@ function AddProject() {
                   onChangeCapture={(e) => setSecondaryCharacterCount(e.target.value.length)}
                 />
               </div>
-              {secondaryCharacterCountLimit ? <p>Too many characters</p> : ''}
+              {secondaryCharacterCountLimit ? <p className="error-style">Too many characters</p> : ''}
             </div>  
             {isUploadingImage && <p>Image uploading</p>}          
             {formData.secondaryImage.length !== 0 &&
@@ -162,7 +162,7 @@ function AddProject() {
             </div>
             }
             <div className="form-field">
-              <label htmlFor="secondaryImages">Secondary Images</label>
+              <label className="image-button" htmlFor="secondaryImages">Secondary Images</label>
               <div>
                 <input 
                   type="file"

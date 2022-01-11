@@ -77,7 +77,7 @@ function Login() {
                 >Log Me In!</button>
               </div>
               {isError && (
-                <p>Email or Password were incorrect. Please try again.</p>
+                <p className="error-style">Email or Password were incorrect. Please try again.</p>
               )}
               <div className='opposite-text'>
                 <p>Not a member?  <Link to="/register">Click here</Link></p> 

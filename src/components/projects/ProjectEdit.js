@@ -118,10 +118,10 @@ function ProjectEdit() {
                   value={formData.projectTitle}
                 />
               </div>
-              {formErrors.projectTitle && <p>Project Title is a required field</p>}
+              {formErrors.projectTitle && <p className="error-style">Project Title is a required field</p>}
             </div>
             <div className="form-field">
-              <label htmlFor="primaryDescription">Primary Description* {primaryCharacterCount}/250</label>
+              <label htmlFor="primaryDescription">Primary Description* <span className="character-count">{primaryCharacterCount}/250</span></label>
               <div>
                 <textarea 
                   className='input-text-area'
@@ -133,8 +133,8 @@ function ProjectEdit() {
                   value={formData.primaryDescription}
                 />
               </div>
-              {primaryCharacterCountLimit ? <p>Too many characters</p> : ''}
-              {formErrors.primaryDescription && <p>Primary Description is a required field</p>}
+              {primaryCharacterCountLimit ? <p className="error-style">Too many characters</p> : ''}
+              {formErrors.primaryDescription && <p className="error-style">Primary Description is a required field</p>}
             </div>
             {isUploadingImage && <p>Image uploading</p>}            
             <div className="primary-image-container">
@@ -152,10 +152,10 @@ function ProjectEdit() {
                   onChange={handlePrimaryImageUpload}
                 />
               </div>
-              {formErrors.primaryImage && <p>Primary Image is a required field</p>}
+              {formErrors.primaryImage && <p className="error-style">Primary Image is a required field</p>}
             </div>                     
             <div className="form-field">
-              <label htmlFor="secondaryDescription">Secondary Description {secondaryCharacterCount}/1000</label>
+              <label htmlFor="secondaryDescription">Secondary Description <span className="character-count">{secondaryCharacterCount}/1000</span></label>
               <div>
                 <textarea 
                   className='input-text-area'
@@ -167,7 +167,7 @@ function ProjectEdit() {
                   value={formData.secondaryDescription}
                 />
               </div>
-              {secondaryCharacterCountLimit ? <p>Too many characters</p> : ''}
+              {secondaryCharacterCountLimit ? <p className="error-style">Too many characters</p> : ''}
             </div>
             {isUploadingImage && <p>Image uploading</p>}
             {formData.secondaryImage.length !== 0 &&
