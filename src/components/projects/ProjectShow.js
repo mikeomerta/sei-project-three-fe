@@ -11,6 +11,7 @@ import axios from 'axios'
 
 function ProjectShow() {
   const { projectId } = useParams()
+  console.log(projectId)
   const navigate = useNavigate()
   const [project, setProject] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
