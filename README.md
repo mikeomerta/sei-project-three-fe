@@ -238,13 +238,4 @@ The buttons and links on the homepage all lead to the same page as we didn't hav
 
 As I mentioned before there were different opinions on styling the login, register and favourites page. In the future, I would like to restyle these pages to be more in line with Depop’s styling to match the overall design better.
 
-I would also like to look at the code for the “Loved By” section on the home page and develop the code that puts the most liked projects into that section, rather than putting them in manually like we did. 
-
-
-
-
-
-
-
-
-
+I would also like to look at the code for the “Loved By” section on the home page and develop the code that puts the most liked projects into that section, rather than putting them in manually like we did.
