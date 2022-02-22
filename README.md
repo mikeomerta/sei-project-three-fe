@@ -10,6 +10,8 @@ We decided to mirror the styling of the second hand clothes website Depop and us
 
 Epop was deployed with netlify and can be found [here](https://epop-project3.netlify.app/).
 
+Please also find the Git repository for the backend [here](https://github.com/mikeomerta/sei-project-three-be)
+
 ## The Brief
 
 * Build a full-stack application by making your own backend and your own front-end.
